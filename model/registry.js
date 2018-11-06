@@ -15,10 +15,16 @@ class Registry {
     }
 
     addNewClient(info) {
+        for (var i = 0; i < this.userList.length;i++) {
+            if(info.username == this.userList[i].username) { 
+                return false;
+            }
+        }
         info.id = this.idGen;
         this.idGen++;
         let user = new User(info);
         this.userList.push(user);
+        return true;
     }
 
     addNewAdmin(info) {
