@@ -9,6 +9,7 @@ var logger = require('morgan');
 
 var main = require('./routes/main');
 var panel = require('./routes/panel');
+var catalog = require('./routes/catalog');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(passport.session());
 // Set up routes
 app.use(main);
 app.use(panel);
+app.use(catalog);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

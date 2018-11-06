@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
 
 var Console = require('../controller/console');
 var helper = require('../helperFunctions/checkAuthentication');
