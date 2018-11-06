@@ -4,7 +4,20 @@ class ItemCatalog {
     constructor() {
         this.items = [];
 
-        this.idGen = 0;
+        this.idGen = 1;
+
+        let info = {
+            itemType: 'book',
+            title: 'hello',
+            author: 'yashar'
+        };
+        this.addItem(info);
+        let info2 = {
+            itemType: 'movie',
+            director: 'hahaha',
+            actors: 'SOEN 341'
+        };
+        this.addItem(info2);
     }
 
     addItem(info) {

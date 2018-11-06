@@ -6,6 +6,9 @@ var Console = require('../controller/console');
 // Get all items in catalog
 router.get('/panel/catalog',
     function(req, res) {
+        let items = Console.allItems()
+        res.locals.items = items;
+        res.render('catalog');
     }
 );
 
