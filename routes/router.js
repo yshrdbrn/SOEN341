@@ -92,7 +92,8 @@ router.post('/panel/registerAdmin',
             phone: req.body.phone,
         }
 
-        Console.registerAdmin(info);
+        Console.addNewAdmin(info);
+        console.log("hello");
         res.redirect('/panel');
     }
 );
@@ -118,6 +119,16 @@ router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
 });
+
+router.get('/panel/usersList',
+    checkIfUserIsLoggedIn,
+    checkIfUserIsAdmin,
+    function(req, res) {
+        userList = Console.getUsersList();
+        res.locals.users = userList;
+        res.render('usersList');
+    }
+);
 
 
 module.exports = router;

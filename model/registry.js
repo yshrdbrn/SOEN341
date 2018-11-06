@@ -9,6 +9,7 @@ class Registry {
         let info = {
             username: 'yashar',
             password: '123',
+            email: '123@gmail.com'
         };
         this.addNewAdmin(info);
     }
@@ -24,7 +25,7 @@ class Registry {
         info.id = this.idGen;
         this.idGen++;
         let user = new User(info);
-        user.setAdmin(true);
+        user.isAdmin = true;
         this.userList.push(user);
     }
 
@@ -54,6 +55,10 @@ class Registry {
             }
         }
         return null;
+    }
+
+    getUsersList() {
+        return this.userList;
     }
 
 }
