@@ -92,7 +92,6 @@ router.post('/panel/registerAdmin',
             email: req.body.email,
             phone: req.body.phone,
         }
-<<<<<<< HEAD
         if(Console.addNewAdmin(info)){
             res.redirect('/panel');
             
@@ -100,12 +99,6 @@ router.post('/panel/registerAdmin',
             req.flash('error','User with this username already exists')
             res.redirect('/panel/registerAdmin')
         }
-=======
-
-        Console.addNewAdmin(info);
-        console.log("hello");
-        res.redirect('/panel');
->>>>>>> 766e3f3c7ebacdde43aac6d0757743aa1fd669c2
     }
 );
 
