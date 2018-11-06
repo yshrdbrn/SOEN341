@@ -53,6 +53,7 @@ router.get('/panel/registerAdmin',
     checkIfUserIsLoggedIn,
     checkIfUserIsAdmin,
     function(req, res) {
+        res.locals.message = req.flash('error');
         res.render('registerAdmin');
     }
 );
@@ -91,9 +92,13 @@ router.post('/panel/registerAdmin',
             email: req.body.email,
             phone: req.body.phone,
         }
-
-        Console.registerAdmin(info);
-        res.redirect('/panel');
+        if(Console.addNewAdmin(info)){
+            res.redirect('/panel');
+            
+        }else{
+            req.flash('error','User with this username already exists')
+            res.redirect('/panel/registerAdmin')
+        }
     }
 );
 

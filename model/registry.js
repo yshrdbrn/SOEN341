@@ -21,11 +21,18 @@ class Registry {
     }
 
     addNewAdmin(info) {
+        for (var i = 0; i < this.userList.length;i++) {
+            if(info.username == this.userList[i].username) { 
+                return false;
+                }
+        }
+
         info.id = this.idGen;
         this.idGen++;
         let user = new User(info);
         user.setAdmin(true);
         this.userList.push(user);
+        return true;
     }
 
     isAdmin(user) {
