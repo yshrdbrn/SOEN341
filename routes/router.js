@@ -4,6 +4,26 @@ var passport = require('passport');
 
 var Console = require('../controller/console');
 
+let checkIfUserIsLoggedIn = function(req, res, next) {
+    if (req.user) {
+        next();
+    }
+    else {
+        res.locals.message = "User not logged in";
+        res.render('error');
+    }
+};
+
+let checkIfUserIsAdmin = function(req, res, next) {
+    if (Console.isAdmin(req.user)) {
+        next();
+    }
+    else {
+        res.locals.message = "User is not admin";
+        res.render('error');
+    }
+};
+
 router.get('/login',
     function(req, res, next) {
         res.locals.message = req.flash('error');
@@ -17,7 +37,7 @@ router.post('/login',
         // console.log(req);
         next();
     },
-    passport.authenticate('local', { successRedirect: '/',
+    passport.authenticate('local', { successRedirect: '/panel',
                                     failureRedirect: '/login',
                                     failureFlash: true }),
 );
@@ -41,7 +61,7 @@ router.post('/register',
         }
 
         Console.registerClient(info);
-        res.redirect('login');
+        res.redirect('/login');
     }
 );
 
@@ -50,5 +70,22 @@ router.get('/',
         res.render('index', { title: 'Express' });
     }
 );
+
+
+router.get('/panel',
+    checkIfUserIsLoggedIn,
+    function(req, res) {
+        console.log('in panel:');
+        console.log(req.user.isAdmin);
+        res.locals.isAdmin = req.user.isAdmin;
+        res.render('panel');
+    }
+);
+
+router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
+
 
 module.exports = router;

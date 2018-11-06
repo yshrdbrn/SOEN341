@@ -5,6 +5,12 @@ class Registry {
         this.userList = [];
         this.activeUsers = [];
         this.idGen = 0;
+
+        let info = {
+            username: 'yashar',
+            password: '123',
+        };
+        this.addNewAdmin(info);
     }
 
     addNewClient(info) {

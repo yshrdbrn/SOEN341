@@ -1,0 +1,18 @@
+<h1>Panel</h1>
+{{#if isAdmin}}
+<p>
+    <a href="/panel/registerAdmin">Register Admin</a>
+</p>
+{{/if}}
+
+{{#if isAdmin}}
+<p>
+    <a href="/panel/listOfUsers">List of Users</a>
+</p>
+{{/if}}
+
+{{#if isAdmin}}
+<p>
+    <a href="/logout">Log out</a>
+</p>
+{{/if}}
