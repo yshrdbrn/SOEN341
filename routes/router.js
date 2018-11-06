@@ -48,6 +48,12 @@ router.get('/register',
     }
 );
 
+router.get('/panel/registerAdmin',
+    function(req, res) {
+        res.render('registerAdmin');
+    }
+);
+
 router.post('/register',
     function(req, res) {
         info = {
@@ -62,6 +68,23 @@ router.post('/register',
 
         Console.registerClient(info);
         res.redirect('/login');
+    }
+);
+
+router.post('/panel/registerAdmin',
+    function(req, res) {
+        info = {
+            username: req.body.username,
+            password: req.body.password,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            address: req.body.address,
+            email: req.body.email,
+            phone: req.body.phone,
+        }
+
+        Console.registerAdmin(info);
+        res.redirect('/panel');
     }
 );
 
