@@ -29,7 +29,7 @@ class Registry {
     }
 
     isAdmin(user) {
-        return 
+        return user.isAdmin
     }
 
     findUser(id) {

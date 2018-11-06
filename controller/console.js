@@ -6,7 +6,7 @@ class Console {
     }
 
     addNewAdmin(info) {
-
+        return this.registry.addNewAdmin(info);
     }
 
     registerClient(info) {
