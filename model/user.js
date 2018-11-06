@@ -11,14 +11,6 @@ class User {
 
         this.isAdmin = false;
     }
-
-    isAdmin() {
-        return this.isAdmin;
-    }
-
-    setAdmin(newValue) {
-        this.isAdmin = newValue;
-    }
 }
 
 module.exports = User;

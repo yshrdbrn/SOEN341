@@ -92,6 +92,7 @@ router.post('/panel/registerAdmin',
             email: req.body.email,
             phone: req.body.phone,
         }
+<<<<<<< HEAD
         if(Console.addNewAdmin(info)){
             res.redirect('/panel');
             
@@ -99,6 +100,12 @@ router.post('/panel/registerAdmin',
             req.flash('error','User with this username already exists')
             res.redirect('/panel/registerAdmin')
         }
+=======
+
+        Console.addNewAdmin(info);
+        console.log("hello");
+        res.redirect('/panel');
+>>>>>>> 766e3f3c7ebacdde43aac6d0757743aa1fd669c2
     }
 );
 
@@ -123,6 +130,16 @@ router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
 });
+
+router.get('/panel/usersList',
+    checkIfUserIsLoggedIn,
+    checkIfUserIsAdmin,
+    function(req, res) {
+        userList = Console.getUsersList();
+        res.locals.users = userList;
+        res.render('usersList');
+    }
+);
 
 
 module.exports = router;

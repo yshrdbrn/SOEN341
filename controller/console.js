@@ -6,15 +6,17 @@ class Console {
     }
 
     addNewAdmin(info) {
-        return this.registry.addNewAdmin(info);
+        this.registry.addNewAdmin(info);
+        return true;
     }
 
     registerClient(info) {
-        return this.registry.addNewClient(info);
+        this.registry.addNewClient(info);
+        return true;
     }
 
     getUsersList() {
-
+        return this.registry.getUsersList();
     }
 
     getUserWithCredentials(username, password) {
