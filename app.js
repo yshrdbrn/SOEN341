@@ -3,13 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var passport = require('./controller/loginSetup');
+var passport = require('./helperFunctions/loginSetup');
 var flash = require('connect-flash');
 var logger = require('morgan');
 
-// var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
-var router = require('./routes/router');
+var main = require('./routes/main');
+var panel = require('./routes/panel');
 
 var app = express();
 
@@ -26,13 +25,16 @@ app.use(flash());
 // Set up session and passport
 let secret = 'soen341'
 app.use(cookieParser(secret));
-app.use(session({ secret: secret }));
+app.use(session({ secret: secret,
+                  saveUninitialized: true,
+                  resave: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 
 // Set up routes
-app.use(router);
+app.use(main);
+app.use(panel);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

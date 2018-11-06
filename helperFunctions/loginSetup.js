@@ -1,4 +1,4 @@
-let Console = require('./console');
+let Console = require('../controller/console');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;;
 
