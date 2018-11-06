@@ -15,7 +15,7 @@ let checkIfUserIsLoggedIn = function(req, res, next) {
 };
 
 let checkIfUserIsAdmin = function(req, res, next) {
-    if (Console.isAdmin(req.user)) {
+    if (req.user.isAdmin) {
         next();
     }
     else {
@@ -44,11 +44,14 @@ router.post('/login',
 
 router.get('/register',
     function(req, res) {
+        res.locals.message = req.flash('error');
         res.render('register');
     }
 );
 
 router.get('/panel/registerAdmin',
+    checkIfUserIsLoggedIn,
+    checkIfUserIsAdmin,
     function(req, res) {
         res.render('registerAdmin');
     }
@@ -66,12 +69,18 @@ router.post('/register',
             phone: req.body.phone,
         }
 
-        Console.registerClient(info);
-        res.redirect('/login');
+        if (Console.registerClient(info)) {
+            res.redirect('/login');
+        } else {
+            req.flash('error', 'User with this username already exists')
+            res.redirect('/register');
+        }
     }
 );
 
 router.post('/panel/registerAdmin',
+    checkIfUserIsLoggedIn,
+    checkIfUserIsAdmin,
     function(req, res) {
         info = {
             username: req.body.username,

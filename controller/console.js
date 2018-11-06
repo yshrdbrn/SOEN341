@@ -5,15 +5,15 @@ class Console {
         this.registry = new Registry();
     }
 
-    addNewAdmin(requester, info) {
+    addNewAdmin(info) {
 
     }
 
     registerClient(info) {
-        this.registry.addNewClient(info);
+        return this.registry.addNewClient(info);
     }
 
-    getUsersList(requester) {
+    getUsersList() {
 
     }
 
