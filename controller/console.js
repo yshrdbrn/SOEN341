@@ -10,7 +10,7 @@ class Console {
     }
 
     registerClient(info) {
-
+        this.registry.addNewClient(info);
     }
 
     getUsersList(requester) {
@@ -18,7 +18,11 @@ class Console {
     }
 
     getUserWithCredentials(username, password) {
-        
+        return this.registry.getUserWithCredentials(username, password);
+    }
+
+    findUser(id) {
+        return this.registry.findUser(id);
     }
 }
 
