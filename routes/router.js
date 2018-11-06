@@ -33,10 +33,6 @@ router.get('/login',
 );
 
 router.post('/login',
-    function(req, res, next) {
-        // console.log(req);
-        next();
-    },
     passport.authenticate('local', { successRedirect: '/panel',
                                     failureRedirect: '/login',
                                     failureFlash: true }),
@@ -121,6 +117,7 @@ router.get('/panel',
 
 router.get('/logout', function(req, res) {
     req.logout();
+    Console.logout(req.user);
     res.redirect('/');
 });
 

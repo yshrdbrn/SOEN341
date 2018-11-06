@@ -9,6 +9,7 @@ passport.use(new localStrategy(
             return done(null, false, { message: 'Incorrect information.' });
         }
 
+        Console.login(user);
         return done(null, user);
     }
 ));

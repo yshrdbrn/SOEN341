@@ -71,9 +71,17 @@ class Registry {
     }
 
     getUsersList() {
-        return this.userList;
+        return this.activeUsers;
     }
 
+    login(user) {
+        this.activeUsers.push(user);
+    }
+
+    logout(user) {
+        let index = this.activeUsers.indexOf(user);
+        if (index != -1) this.activeUsers.splice(index, 1);
+    }
 }
 
 module.exports = Registry;

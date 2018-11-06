@@ -24,6 +24,14 @@ class Console {
     findUser(id) {
         return this.registry.findUser(id);
     }
+
+    login(user) {
+        this.registry.login(user);
+    }
+
+    logout(user) {
+        if (user) this.registry.logout(user);
+    }
 }
 
 module.exports = new Console();
