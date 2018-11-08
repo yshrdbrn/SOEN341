@@ -21,6 +21,8 @@ router.get('/panel/catalog/add',
 
 router.post('/panel/catalog/add',
     function(req, res) {
+        Console.addItem(req.body);
+        res.redirect('/panel/catalog');
     }
 );
 
@@ -42,6 +44,8 @@ router.get('/panel/catalog/modify/:item_id',
 
 router.post('/panel/catalog/modify/:item_id',
     function(req, res) {
+        Console.modifyItem(req.params.item_id, req.body);
+        res.redirect('/panel/catalog');
     }
 );
 

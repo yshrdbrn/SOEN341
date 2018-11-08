@@ -28,17 +28,7 @@ router.get('/register',
 
 router.post('/register',
     function(req, res) {
-        info = {
-            username: req.body.username,
-            password: req.body.password,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            address: req.body.address,
-            email: req.body.email,
-            phone: req.body.phone,
-        }
-
-        if (Console.registerClient(info)) {
+        if (Console.registerClient(req.body)) {
             res.redirect('/login');
         } else {
             req.flash('error', 'User with this username already exists')
