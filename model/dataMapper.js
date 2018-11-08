@@ -7,14 +7,19 @@ class DataMapper {
     }
 
     insertUser(info) {
-        var values = [];
-        for (var key in info) {
-            var temp = [];
-            temp.push(key);
-            temp.push(info[key]);
-            values.push(temp);
-        }
+        var value = [];
+        value.push(info.firstname);
+        value.push(info.lastname);
+        value.push(info.address);
+        value.push(info.email);
+        value.push(info.password);
+        value.push(info.phonenumber);
+        value.push(info.isadmin);
 
+        var values = [];
+        values.push(value);
         this.database.insertUser(values);
     }
 }
+
+module.exports = DataMapper;
