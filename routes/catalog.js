@@ -13,7 +13,13 @@ router.get('/panel/catalog',
 );
 
 // Add item
-router.post('/panel/catalog/',
+router.get('/panel/catalog/add',
+    function(req, res) {
+
+    }
+);
+
+router.post('/panel/catalog/add',
     function(req, res) {
     }
 );
@@ -28,6 +34,12 @@ router.post('/panel/catalog/delete/:item_id',
 );
 
 // Modify item with id: item_id
+router.get('/panel/catalog/modify/:item_id',
+    function(req, res) {
+
+    }
+);
+
 router.post('/panel/catalog/modify/:item_id',
     function(req, res) {
     }
