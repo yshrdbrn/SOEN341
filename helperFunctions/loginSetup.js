@@ -1,16 +1,18 @@
 let Console = require('../controller/console');
 var passport = require('passport');
-var localStrategy = require('passport-local').Strategy;;
+var localStrategy = require('passport-local').Strategy;
+var database = require('./model/database.js');
 
 passport.use(new localStrategy(
     function(username, password, done) {
-        user = Console.getUserWithCredentials(username, password);
-        if (!user) {
-            return done(null, false, { message: 'Incorrect information.' });
-        }
-
-        Console.login(user);
-        return done(null, user);
+        Console.getUserWithCredentials(username, password, function(user){
+            if (!user) {
+                return done(null, false, { message: 'Incorrect information.' });                
+            }   
+            Console.login(user);
+            return done(null, user); 
+        });
+        
     }
 ));
 
