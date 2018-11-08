@@ -16,7 +16,7 @@
         {{#each item}}
             {{#if . }}
                 <td>{{.}}</td>
-            {{/if}}
+            {{/if}}    
         {{/each}}
         <td>
             <a href="/panel/catalog/modify/{{item.id}}">Modify</a>
@@ -28,5 +28,16 @@
         </td>
         </tr>
     </tbody>
+    <table>
+         {{#if item.id}}
+            <form method="router.put" action="/panel/catalog/:item_id">
+            <button type="submit">Modify</button>
+            </form>
+        {{/if}}
+    </table>
+
+    
+
+
 </table>
 {{/each}}
