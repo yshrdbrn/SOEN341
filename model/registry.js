@@ -1,10 +1,12 @@
 const User = require('./user');
+const DataMapper = require('./dataMapper');
 
 class Registry {
     constructor() {
         this.userList = [];
         this.activeUsers = [];
         this.idGen = 0;
+        this.dataMapper = new DataMapper();
 
         let info = {
             username: 'yashar',
@@ -15,15 +17,23 @@ class Registry {
     }
 
     addNewClient(info) {
-        for (var i = 0; i < this.userList.length;i++) {
-            if(info.username == this.userList[i].username) { 
-                return false;
-            }
-        }
-        info.id = this.idGen;
-        this.idGen++;
-        let user = new User(info);
-        this.userList.push(user);
+        info[isadmin] = false;
+        
+        this.dataMapper.insertUser(info);
+
+        // TODO: Check if user already exists
+
+        // for (var i = 0; i < this.userList.length;i++) {
+        //     if(info.username == this.userList[i].username) { 
+        //         return false;
+        //     }
+        // }
+
+        // info.id = this.idGen;
+        // this.idGen++;
+        // let user = new User(info);
+        // this.userList.push(user);
+
         return true;
     }
 
