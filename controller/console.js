@@ -17,7 +17,7 @@ class Console {
 
     getUsersList(callback) { return this.registry.getUsersList(callback); }
 
-    getUserWithCredentials(username, password) { return this.registry.getUserWithCredentials(username, password); }
+    getUserWithCredentials(email, password) { return this.registry.getUserWithCredentials(email, password); }
 
     findUser(id) { return this.registry.findUser(id); }
 

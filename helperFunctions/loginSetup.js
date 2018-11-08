@@ -5,7 +5,6 @@ var localStrategy = require('passport-local').Strategy;;
 passport.use(new localStrategy(
     function(username, password, done) {
         Console.getUserWithCredentials(username, password, function(user){
-            
         if (!user) {
             return done(null, false, { message: 'Incorrect information.' });
         }

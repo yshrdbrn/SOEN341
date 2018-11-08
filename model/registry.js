@@ -9,9 +9,8 @@ class Registry {
         this.dataMapper = new DataMapper();
 
         let info = {
-            username: 'yashar',
+            email: 'yashar',
             password: '123',
-            email: '123@gmail.com'
         };
         this.addNewAdmin(info);
     }
@@ -38,16 +37,16 @@ class Registry {
     }
 
     addNewAdmin(info) {
-        for (var i = 0; i < this.userList.length;i++) {
-            if(info.username == this.userList[i].username) { 
-                return false;
-                }
-        }
+        // for (var i = 0; i < this.userList.length;i++) {
+        //     if(info.username == this.userList[i].username) { 
+        //         return false;
+        //         }
+        // }
 
         info.id = this.idGen;
         this.idGen++;
         let user = new User(info);
-        user.isAdmin = true;
+        user.isadmin = true;
         this.userList.push(user);
         return true;
     }
@@ -67,11 +66,11 @@ class Registry {
         }
     }
 
-    getUserWithCredentials(username, password) {
+    getUserWithCredentials(email, password) {
         // console.log("******");
         // console.log(this.userList.length);
         for (var i = 0; i < this.userList.length; i++) {
-            if (this.userList[i].username == username &&
+            if (this.userList[i].email == email &&
                 this.userList[i].password == password) {
                     // console.log("hello");
                 return this.userList[i];
@@ -80,9 +79,8 @@ class Registry {
         return null;
     }
 
-    getUsersList(callback) {
-        //return this.activeUsers;
-        this.dataMapper.selectAllUsers(callback);
+    getUsersList() {
+        return this.activeUsers;
     }
 
     login(user) {

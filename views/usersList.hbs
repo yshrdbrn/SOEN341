@@ -1,7 +1,6 @@
 <table>
     <thead>
         <th>Number</th>
-        <th>Username</th>
         <th>Email</th>
         <th>Is Admin</th>
     </thead>
@@ -9,7 +8,6 @@
     {{#each users as |user|}}
         <tr>
             <td>{{@index}}</td>
-            <td>{{user.username}}</td>
             <td>{{user.email}}</td>
             <td>{{user.isAdmin}}</td>
         </tr>
