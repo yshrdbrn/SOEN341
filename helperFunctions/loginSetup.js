@@ -4,13 +4,15 @@ var localStrategy = require('passport-local').Strategy;;
 
 passport.use(new localStrategy(
     function(username, password, done) {
-        user = Console.getUserWithCredentials(username, password);
+        Console.getUserWithCredentials(username, password, function(user){
+            
         if (!user) {
             return done(null, false, { message: 'Incorrect information.' });
         }
 
         Console.login(user);
         return done(null, user);
+        });
     }
 ));
 
