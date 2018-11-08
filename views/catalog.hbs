@@ -18,6 +18,14 @@
                 <td>{{.}}</td>
             {{/if}}
         {{/each}}
+        <td>
+            <a href="/panel/catalog/modify/{{item.id}}">Modify</a>
+        </td>
+        <td>
+            <form action="/panel/catalog/delete/{{item.id}}" method="post">
+            <button>Delete</button>
+            </form>
+        </td>
         </tr>
     </tbody>
 </table>

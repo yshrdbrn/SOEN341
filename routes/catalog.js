@@ -19,13 +19,16 @@ router.post('/panel/catalog/',
 );
 
 // Delete item with id: item_id
-router.delete('/panel/catalog/:item_id',
+router.post('/panel/catalog/delete/:item_id',
     function(req, res) {
+        id = req.params.item_id;
+        Console.removeItem(id);
+        res.redirect('/panel/catalog');
     }
 );
 
 // Modify item with id: item_id
-router.put('/panel/catalog/:item_id',
+router.post('/panel/catalog/modify/:item_id',
     function(req, res) {
     }
 );
