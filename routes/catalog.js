@@ -13,10 +13,36 @@ router.get('/panel/catalog',
 );
 
 // Add item
-router.post('/panel/catalog/',
+router.get('/panel/catalog/add',
     function(req, res) {
+            res.locals.message = req.flash('error');
+            res.render('add'); 
     }
 );
+router.get('/panel/catalog/add/book',
+   function(req,res){
+    res.locals.message = req.flash('error');
+    res.render('addBook');   
+   }
+)
+router.get('/panel/catalog/add/Music',
+   function(req,res){
+    res.locals.message = req.flash('error');
+    res.render('addMusic');   
+   }
+)
+router.get('/panel/catalog/add/Magazine',
+   function(req,res){
+    res.locals.message = req.flash('error');
+    res.render('addMagazine');   
+   }
+)
+router.get('/panel/catalog/add/Movie',
+   function(req,res){
+    res.locals.message = req.flash('error');
+    res.render('addMovie');   
+   }
+)
 
 // Delete item with id: item_id
 router.delete('/panel/catalog/:item_id',
