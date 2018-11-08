@@ -15,7 +15,7 @@ class Console {
 
     registerClient(info) { return this.registry.addNewClient(info); }
 
-    getUsersList() { return this.registry.getUsersList(); }
+    getUsersList(callback) { return this.registry.getUsersList(callback); }
 
     getUserWithCredentials(username, password) { return this.registry.getUserWithCredentials(username, password); }
 

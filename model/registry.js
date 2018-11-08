@@ -80,8 +80,9 @@ class Registry {
         return null;
     }
 
-    getUsersList() {
-        return this.activeUsers;
+    getUsersList(callback) {
+        //return this.activeUsers;
+        this.dataMapper.selectAllUsers(callback);
     }
 
     login(user) {

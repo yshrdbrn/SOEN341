@@ -50,9 +50,11 @@ router.post('/panel/registerAdmin',
 router.get('/panel/usersList',
     helper.checkIfUserIsAdmin,
     function(req, res) {
-        userList = Console.getUsersList();
-        res.locals.users = userList;
-        res.render('usersList');
+        Console.getUsersList(function(userList){
+            res.locals.users = userList;
+            res.render('usersList');
+        });
+        
     }
 );
 

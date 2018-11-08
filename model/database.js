@@ -50,12 +50,12 @@ class Database{
     this.mydisconnect();
   }
 
-  selectAllUsers(){
+  selectAllUsers(callback){
     this.myconnect();
   this.con.query("SELECT * FROM Users", function (err, result) {
     if (err) throw err;
-    console.log(result);
-    return result;
+    
+    callback(result);
   });
     this.mydisconnect();
 }
