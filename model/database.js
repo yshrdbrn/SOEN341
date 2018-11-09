@@ -94,5 +94,16 @@ class Database{
     this.mydisconnect();
   }
 
+  viewItem(itemType, title, callback){
+    this.myconnect();
+    var sql = "SELECT * FROM Item WHERE itemType = ? AND title = ?";
+    this.con.query(sql, itemType, title, function(err, result){
+      if (err) throw err;
+      console.log(`Displayed ${result.affectedRows} row(s)`);
+    }
+    );
+    this.mydisconnect();
+  }
+
 }
 module.exports = Database;

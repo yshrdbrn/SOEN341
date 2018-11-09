@@ -1,4 +1,5 @@
-const User = require('./item');
+const User = require('./user');
+const Item = require('./item');
 const Database = require('./database');
 
 class DataMapper {
@@ -99,6 +100,15 @@ class DataMapper {
         this.database.deleteItem(id);
     }
 
+    viewItem(itemType, id){
+        this.database.viewItem(itemType,title, function(items){
+            var objectItems = [];
+            for(item in items){
+                objectItems.push(new Item(item));
+            }
+
+        });
+    }
 }
 
 module.exports = DataMapper;
