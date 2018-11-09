@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>modifyMagazine</title>
+    <style type="text/css">
+        span{padding-right:10px;width:6em;display:block;float:left;}
+    </style>
+</head>
+<body>
+<div>
+    <div>modifyMagazine</div>
+    <form action="/editBook" method="post">
+        <input type="hidden" name="id" value="{{id}}">
+        <span>title:</span><input type="text" name="title" value="{{info.title}}"><br>
+        <span>publisher:</span><input type="text" name="publisher" value="{{info.publisher}}"><br>
+        <span>language:</span><input type="text" name="language"  value="{{info.language}}"><br>
+        <span>isbn10:</span><input type="text" name="isbn10"  value="{{info.isbn10}}"><br>
+        <span>isbn13:</span><input type="text" name="isbn13"  value="{{info.isbn13}}"><br>
+
+        <input type="submit" value="Modify it">
+    </form>
+</div>
+</body>
+</html>
