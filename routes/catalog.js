@@ -64,6 +64,12 @@ router.get('/panel/catalog/modify/:item_id',
         if (item.itemType == 'Movie') res.render('modifyMovie');
     }
 );
+router.post('/panel/catalog/modify/Book/:item_id',
+   function(req,res){
+    res.locals.message = req.flash('error');
+    res.render('modifyBook');   
+   }
+)
 
 
 module.exports = router;
