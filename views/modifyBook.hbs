@@ -1,16 +1,23 @@
+<html lang="en">
 <h1>modifyBook</h1>
-<body>
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        span{padding-right:10px;width:6em;display:block;float:left;}
+    </style>
+</head><body>
 <div>
 	<form action="/panel/catalog/modifyBook/:item_id" method="post">
 		<input type="hidden" name="id" value="{{item_id}}">
-		title    ：<input type="text" name="title" value="{{info.ptitle}}"><br>
-		author   ：<input type="text" name="author" value="{{info.author}}"><br>
-		format   ：<input type="text" name="category" value="{{info.format}}"><br>
-		pages    ：<input type="text" name="pages" value="{{info.pages}}"><br>
-        publisher: <input type="text" name="publisher" value="{{info.publisher}}"><br>
-        language : <input type="text" name="language" value="{{info.language}}"><br>
-        isbn10   : <input type="text" name="isbn10" value="{{info.isbn10}}"><br>
-        isbn13   : <input type="text" name="isbn13" value="{{info.isbn13}}"><br>
+        <span>type:</span><input type="text" name="title" value="{{info.ptitle}}"><br>
+        <span>author:</span><input type="text" name="author" value="{{info.author}}"><br>
+        <span>format:</span><input type="text" name="category" value="{{info.format}}"><br>
+        <span>pages:</span><input type="text" name="pages" value="{{info.pages}}"><br>
+        <span>publisher:</span><input type="text" name="publisher" value="{{info.publisher}}"><br>
+        <span>language:</span><input type="text" name="language" value="{{info.language}}"><br>
+        <span>isbn10:</span><input type="text" name="isbn10" value="{{info.isbn10}}"><br>
+        <span>isbn13:</span><input type="text" name="isbn13" value="{{info.isbn13}}"><br>
 		<button>modifyBook</button>
 
 	</form>

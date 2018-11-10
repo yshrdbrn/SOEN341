@@ -1,18 +1,15 @@
-<<<<<<< HEAD
-<h1>modifyBook</h1>
-=======
 <html lang="en">
+<h1>modifyMagazine</h1>
+
 <head>
     <meta charset="UTF-8">
-    <title>modifyMagazine</title>
     <style type="text/css">
         span{padding-right:10px;width:6em;display:block;float:left;}
     </style>
 </head>
 <body>
 <div>
-    <div>modifyMagazine</div>
-    <form action="/editBook" method="post">
+    <form action="/panel/catalog/modifyMagazine/:item_id" method="post">
         <input type="hidden" name="id" value="{{id}}">
         <span>title:</span><input type="text" name="title" value="{{info.title}}"><br>
         <span>publisher:</span><input type="text" name="publisher" value="{{info.publisher}}"><br>
@@ -20,9 +17,8 @@
         <span>isbn10:</span><input type="text" name="isbn10"  value="{{info.isbn10}}"><br>
         <span>isbn13:</span><input type="text" name="isbn13"  value="{{info.isbn13}}"><br>
 
-        <input type="submit" value="Modify it">
+        <button>modifyMagazine</button>
     </form>
 </div>
 </body>
 </html>
->>>>>>> e8404ef50a5fa8cf1d5ed4b163ca6baa4dffceb0

@@ -1,15 +1,14 @@
 <html lang="en">
+<h1>modifyMovie</h1>
 <head>
     <meta charset="UTF-8">
-    <title>modifyMovie</title>
     <style type="text/css">
         span{padding-right:10px;width:6em;display:block;float:left;}
     </style>
 </head>
 <body>
 <div>
-    <div>modifyMovie</div>
-    <form action="/editBook" method="post">
+    <form action="/panel/catalog/modifyMovie/:item_id" method="post">
         <input type="hidden" name="id" value="{{id}}">
         <span>director:</span><input type="text" name="director"  value="{{info.director}}"><br>
         <span>producers:</span><input type="text" name="producers"  value="{{info.producers}}"><br>
@@ -18,7 +17,7 @@
         <span>dubbed:</span><input type="text" name="dubbed"  value="{{info.dubbed}}"><br>
         <span>releaseDate:</span><input type="text" name="releaseDate" value="{{info.releaseDate}}"><br>
         <span>runTime:</span><input type="text" name="runTime" value="{{info.runTime}}"><br>
-        <input type="submit" value="Modify it">
+        <button>modifyMovie</button>
     </form>
 
 </div>

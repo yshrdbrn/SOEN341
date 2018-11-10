@@ -1,7 +1,7 @@
 <html lang="en">
+<h1>modifyMusic</h1>
 <head>
     <meta charset="UTF-8">
-    <title>modifyMusic</title>
     <style type="text/css">
         span{padding-right:10px;width:6em;display:block;float:left;}
     </style>
@@ -9,7 +9,7 @@
 <body>
 <div>
     <div>modifyMusic</div>
-    <form action="/editBook" method="post">
+    <form action="/panel/catalog/modifyMusic/:item_id" method="post">
         <input type="hidden" name="id" value="{{id}}">
         <span>type:</span><input type="text" name="type" value="{{info.type}}"><br>
         <span>title:</span><input type="text" name="title" value="{{info.title}}"><br>
@@ -17,7 +17,7 @@
         <span>label:</span>label ：<input type="text" name="label" value="{{info.label}}{{info.dubbed}}"><br>
         <span>releaseDate:</span><input type="text" name="releaseDate" value="{{info.releaseDate}}"><br>
         <span>asin:</span><input type="text" name="asin" value="{{info.asin}}"><br>
-        <input type="submit" value="Modify it">
+        <button>modifyMusic</button>
     </form>
 </div>
 </body>
