@@ -50,11 +50,20 @@ class Database{
     this.mydisconnect();
   }
 
+  findUser(email,password,callback){
+    this.myconnect();
+    this.con.query("SELECT * FROM users WHERE email = ? AND password = ?", [email,password],function(err,result){
+      if(err) throw err;
+      //console.log(result);
+      callback(result);
+    });
+    this.mydisconnect();
+  }
+
   selectAllUsers(callback){
     this.myconnect();
-  this.con.query("SELECT * FROM Users", function (err, result) {
-    if (err) throw err;
-    
+  this.con.query("SELECT * FROM users", function (err, result) {
+    if (err) console.log(err);
     callback(result);
   });
     this.mydisconnect();

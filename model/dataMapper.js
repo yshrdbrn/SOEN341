@@ -26,18 +26,27 @@ class DataMapper {
         this.database.deleteUser(id);
     }
 
-    selectAllUsers(){
-        
+    findUser(email,password,callback){
+      this.database.findUser(email,password,function(user){
+        //console.log(user);
+        if(user.length > 0 ){
+        callback(new User(user[0]));
+      }else{
+        callback(false);
+      }
+      });
+    }
+    selectAllUsers(callback){
+
         this.database.selectAllUsers(function(users) {
             var objectUsers = [];
-
-            for (user in users){
-                objectUsers.push(new User(user));
-
+            for (var i in users){
+                objectUsers.push(new User(users[i]));
             }
+            callback(objectUsers);
         });
-        
-        
+
+
     }
 
     insertItem(info){

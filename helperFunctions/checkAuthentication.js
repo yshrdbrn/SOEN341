@@ -9,7 +9,7 @@ exports.checkIfUserIsLoggedIn = function(req, res, next) {
 };
 
 exports.checkIfUserIsAdmin = function(req, res, next) {
-    if (req.user.isAdmin) {
+    if (req.user.isadmin) {
         next();
     }
     else {

@@ -17,7 +17,11 @@ class Console {
 
     getUsersList(callback) { return this.registry.getUsersList(callback); }
 
-    getUserWithCredentials(email, password) { return this.registry.getUserWithCredentials(email, password); }
+    getUserWithCredentials(email, password,callback) {
+      this.registry.getUserWithCredentials(email, password,function(user){
+        callback(user);
+      });
+    }
 
     findUser(id) { return this.registry.findUser(id); }
 

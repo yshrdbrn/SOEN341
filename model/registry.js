@@ -11,19 +11,21 @@ class Registry {
         let info = {
             email: 'yashar',
             password: '123',
+
         };
-        this.addNewAdmin(info);
+        //console.log(info);
+        //this.addNewAdmin(info);
     }
 
     addNewClient(info) {
         info[isadmin] = false;
-        
+
         this.dataMapper.insertUser(info);
 
         // TODO: Check if user already exists
 
         // for (var i = 0; i < this.userList.length;i++) {
-        //     if(info.username == this.userList[i].username) { 
+        //     if(info.username == this.userList[i].username) {
         //         return false;
         //     }
         // }
@@ -38,7 +40,7 @@ class Registry {
 
     addNewAdmin(info) {
         // for (var i = 0; i < this.userList.length;i++) {
-        //     if(info.username == this.userList[i].username) { 
+        //     if(info.username == this.userList[i].username) {
         //         return false;
         //         }
         // }
@@ -48,11 +50,12 @@ class Registry {
         let user = new User(info);
         user.isadmin = true;
         this.userList.push(user);
+        //console.log(user);
         return true;
     }
 
     isAdmin(user) {
-        return user.isAdmin
+        return user.isadmin;
     }
 
     findUser(id) {
@@ -66,17 +69,19 @@ class Registry {
         }
     }
 
-    getUserWithCredentials(email, password) {
-        // console.log("******");
-        // console.log(this.userList.length);
-        for (var i = 0; i < this.userList.length; i++) {
-            if (this.userList[i].email == email &&
-                this.userList[i].password == password) {
-                    // console.log("hello");
-                return this.userList[i];
-            }
-        }
-        return null;
+    getUserWithCredentials(email, password,callback) {
+      var that = this;
+        this.dataMapper.findUser(email,password,function(user){
+          if(email == user.email && password == user.password){
+          console.log(user);
+          that.userList.push(user);
+            callback(user);
+          }else{
+            callback(false);
+          }
+          //console.log(user);
+        });
+
     }
 
     getUsersList() {

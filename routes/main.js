@@ -7,7 +7,7 @@ var Console = require('../controller/console');
 router.get('/login',
     function(req, res, next) {
         res.locals.message = req.flash('error');
-        // console.log(req.flash('error'));
+        //console.log(req.flash('error'));
         res.render('login');
     }
 );
