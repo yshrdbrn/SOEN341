@@ -28,6 +28,8 @@ class Console {
     modifyItem(id, info) { this.itemCatalog.modifyItem(id, info); }
 
     allItems() { return this.itemCatalog.allItems(); }
+
+    getItem(id) {return this.itemCatalog.getItem(id); }
 }
 
 module.exports = new Console();
