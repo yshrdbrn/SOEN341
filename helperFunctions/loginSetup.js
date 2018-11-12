@@ -1,7 +1,6 @@
 let Console = require('../controller/console');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
-var database = require('./model/database.js');
 
 passport.use(new localStrategy({
     usernameField: 'email',
