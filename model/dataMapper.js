@@ -28,16 +28,29 @@ class DataMapper {
 
     findUser(email,password,callback){
       this.database.findUser(email,password,function(user){
-        //console.log(user);
         if(user.length > 0 ){
+          console.log("found user");
         callback(new User(user[0]));
       }else{
+        console.log("did not find user");
         callback(false);
       }
       });
     }
-    selectAllUsers(callback){
 
+    userExists(email,callback){
+      this.database.userExists(email,function(user){
+        if(user.length > 0){
+          console.log("user already exists");
+          callback(true);
+        }else{
+          console.log("user does not exist");
+          callback(false);
+        }
+      });
+    }
+
+    selectAllUsers(callback){
         this.database.selectAllUsers(function(users) {
             var objectUsers = [];
             for (var i in users){
@@ -45,8 +58,6 @@ class DataMapper {
             }
             callback(objectUsers);
         });
-
-
     }
 
     insertItem(info){

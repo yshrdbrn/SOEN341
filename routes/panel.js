@@ -10,9 +10,6 @@ router.use('/panel',
 
 router.get('/panel',
     function(req, res) {
-        // console.log('in panel:');
-         //console.log(req.user.isadmin);
-         //console.log(req.user.isadmin);
         res.locals.isadmin = req.user.isadmin;
         res.render('panel');
     }
@@ -30,7 +27,6 @@ router.post('/panel/registerAdmin',
     helper.checkIfUserIsAdmin,
     function(req, res) {
         info = {
-          
             password: req.body.password,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
@@ -38,13 +34,14 @@ router.post('/panel/registerAdmin',
             email: req.body.email,
             phonenumber: req.body.phonenumber,
         }
-        if(Console.addNewAdmin(info)){
-            res.redirect('/panel');
-
-        }else{
-            req.flash('error','User with this username already exists')
-            res.redirect('/panel/registerAdmin')
-        }
+        Console.registerAdmin(info,function(success){
+          if(success){
+              res.redirect('/panel');
+          }else{
+              req.flash('error','Admin with this username already exists')
+              res.redirect('/panel/registerAdmin')
+          }
+        });
     }
 );
 

@@ -7,7 +7,6 @@ class User {
         this.address = info.address;
         this.email = info.email;
         this.phonenumber = info.phonenumber;
-
         this.isadmin = info.isadmin;
     }
 }

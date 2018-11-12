@@ -7,7 +7,6 @@ var Console = require('../controller/console');
 router.get('/login',
     function(req, res, next) {
         res.locals.message = req.flash('error');
-        //console.log(req.flash('error'));
         res.render('login');
     }
 );
@@ -26,14 +25,15 @@ router.get('/register',
 );
 
 
-router.post('/register',
-    function(req, res) {
-        if (Console.registerClient(req.body)) {
+router.post('/register',function(req, res) {
+        Console.registerClient(req.body,function(success){
+          if (success) {
             res.redirect('/login');
-        } else {
-            req.flash('error', 'User with this username already exists')
-            res.redirect('/register');
-        }
+          } else {
+              req.flash('error', 'User with this username already exists')
+              res.redirect('/register');
+            }
+        });
     }
 );
 

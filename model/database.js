@@ -54,7 +54,16 @@ class Database{
     this.myconnect();
     this.con.query("SELECT * FROM users WHERE email = ? AND password = ?", [email,password],function(err,result){
       if(err) throw err;
-      //console.log(result);
+      callback(result);
+    });
+    this.mydisconnect();
+  }
+
+  userExists(email,callback){
+    this.myconnect();
+    var sql = "SELECT * FROM users WHERE email = ?";
+    this.con.query(sql,[email],function(err,result){
+      if(err) throw err;
       callback(result);
     });
     this.mydisconnect();
