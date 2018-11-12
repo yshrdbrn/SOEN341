@@ -11,13 +11,39 @@ class Console {
 
     logout(user) { if (user) this.registry.logout(user); }
 
-    addNewAdmin(info) { return this.registry.addNewAdmin(info); }
+    registerAdmin(info,callback) {
+       this.registry.addNewAdmin(info,function(success){
+        if(success){
+          console.log('New Admin Registered');
+          callback(true);
+        }else{
+          console.log('Admin Registration Failed!');
+          callback(false);
+        }
+       });
+    }
 
-    registerClient(info) { return this.registry.addNewClient(info); }
+    registerClient(info,callback) {
+      this.registry.addNewClient(info,function(success){
+        if(success){
+          callback(success);
+        }else{
+          callback(false);
+        }
+      });
+    }
 
-    getUsersList() { return this.registry.getUsersList(); }
+    getUsersList(callback) {
+      this.registry.getUsersList(function(userslist){
+        callback(userslist);
+      }); 
+    }
 
-    getUserWithCredentials(username, password) { return this.registry.getUserWithCredentials(username, password); }
+    getUserWithCredentials(email, password,callback) {
+      this.registry.getUserWithCredentials(email, password,function(user){
+        callback(user);
+      });
+    }
 
     findUser(id) { return this.registry.findUser(id); }
 
