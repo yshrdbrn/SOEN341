@@ -1,0 +1,44 @@
+{{#if message}}
+    <div class="alert alert-danger">{{message}}</div>
+{{/if}}
+<body>
+<h1>Add Item</h1>
+<div class = "dropdown">
+  <button onclick = "myFunction()" 
+  class = "dropbtn"> Choose Item Type </button>
+  <div id = "myDropdown" 
+  class = "dropdown-content">
+    <a href = "/panel/catalog/add/book">Book</a>
+    <a href = "/panel/catalog/add/Magazine">Magazine</a>
+    <a href = "/panel/catalog/add/Movie">Movie</a>
+    <a href = "/panel/catalog/add/Music">Music</a>
+  </div>
+</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+
+
+

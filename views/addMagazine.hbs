@@ -1,0 +1,12 @@
+{{#if message}}
+    <div class="alert alert-danger">{{message}}</div>
+{{/if}}
+<h1>Add Magazine</h1>
+<form action="/panel/catalog/add/Magazine" method="post">
+   <input type="text" name="title" placeholder="Title"><br>
+  <input type="text" name="publisher"placeholder="Publisher"><br>
+   <input type="text" name="language"placeholder="Language"><br>
+   <input type="text" name="isbn10"placeholder="ISBN10"><br>
+   <input type="text" name="isbn13"placeholder="ISBN13"><br>
+  <button>Add Magazine</button>
+</form>
