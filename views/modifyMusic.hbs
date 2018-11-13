@@ -9,8 +9,9 @@
 <body>
 <div>
     <div>modifyMusic</div>
-    <form action="/editBook" method="post">
-        <input type="hidden" name="id" value="{{id}}">
+<form action="/panel/catalog/modify/{{info.id}}" method="post">
+		<input type="hidden" name="id" value="{{info.id}}">
+		<input type="hidden" name="itemType" value="{{info.itemType}}">
         <span>type:</span><input type="text" name="type" value="{{info.type}}"><br>
         <span>title:</span><input type="text" name="title" value="{{info.title}}"><br>
         <span>artist</span><input type="text" name="artist" value="{{info.artist}}"><br>

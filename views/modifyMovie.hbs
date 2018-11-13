@@ -9,8 +9,9 @@
 <body>
 <div>
     <div>modifyMovie</div>
-    <form action="/editBook" method="post">
-        <input type="hidden" name="id" value="{{id}}">
+    <form action="/panel/catalog/modify/{{info.id}}" method="post">
+        <input type="hidden" name="id" value="{{info.id}}">
+		<input type="hidden" name="itemType" value="{{info.itemType}}">
         <span>director:</span><input type="text" name="director"  value="{{info.director}}"><br>
         <span>producers:</span><input type="text" name="producers"  value="{{info.producers}}"><br>
         <span>actors:</span><input type="text" name="actors"  value="{{info.actors}}"><br>

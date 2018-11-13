@@ -56,7 +56,7 @@ router.get('/panel/catalog/modify/:item_id',
         var item = Console.getItem(req.params.item_id);
         console.log(item);
         res.locals.message = req.flash('error');
-        res.locals.item = item;
+        res.locals.info = item;
         if (item.itemType == 'Music') res.render('modifyMusic');
         if (item.itemType == 'Video') res.render('modifyVideo');
         if (item.itemType == 'Magezine') res.render('modifyMusic');
@@ -64,10 +64,11 @@ router.get('/panel/catalog/modify/:item_id',
         if (item.itemType == 'Movie') res.render('modifyMovie');
     }
 );
-router.post('/panel/catalog/modify/Book/:item_id',
+
+router.post('/panel/catalog/modify/:item_id',
    function(req,res){
-    res.locals.message = req.flash('error');
-    res.render('modifyBook');   
+        Console.modifyItem(req.params.item_id, req.body);
+        res.redirect('/panel/catalog');
    }
 )
 

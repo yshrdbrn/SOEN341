@@ -2,7 +2,7 @@
     <div class="alert alert-danger">{{message}}</div>
 {{/if}}
 <h1>Add Book</h1>
-<form action="/panel/catalog/add/book" method="post">
+ <form action="/panel/catalog/modify/book/{{req.params.item_id}}" method="get"></form>
    <input type="text" name="title" placeholder="Title"><br>
    <input type="text" name="author"placeholder="author"><br>
    <input type="text" name="format"placeholder="Format"><br>
