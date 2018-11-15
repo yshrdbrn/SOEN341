@@ -1,18 +1,15 @@
-
-<h1>modifyBook</h1>
 <html lang="en">
-<h1>modifyMagazine</h1>
+<h1>ModifyMagazine</h1>
 
 <head>
     <meta charset="UTF-8">
-    <style type="text/css">
-        span{padding-right:10px;width:6em;display:block;float:left;}
-    </style>
+    <!--<style type="text/css">-->
+        <!--span{padding-right:10px;width:6em;display:block;float:left;}-->
+    <!--</style>-->
 </head>
 <body>
 <div>
-    <div>modifyMagazine</div>
-<form action="/panel/catalog/modify/{{info.id}}" method="post">
+    <form action="/panel/catalog/modify/{{info.id}}" method="post">
 		<input type="hidden" name="id" value="{{info.id}}">
 		<input type="hidden" name="itemType" value="{{info.itemType}}">
         <span>title:</span><input type="text" name="title" value="{{info.title}}"><br>
@@ -21,7 +18,7 @@
         <span>isbn10:</span><input type="text" name="isbn10"  value="{{info.isbn10}}"><br>
         <span>isbn13:</span><input type="text" name="isbn13"  value="{{info.isbn13}}"><br>
 
-        <button>modifyMagazine</button>
+        <button>ModifyMagazine</button>
     </form>
 </div>
 </body>
