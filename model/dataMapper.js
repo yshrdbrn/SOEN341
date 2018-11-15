@@ -60,7 +60,7 @@ class DataMapper {
         });
     }
 
-    insertItem(info){
+    insertItem(info, callback){
         var value = [];
         value.push(info.itemType);
         value.push(info.title);
@@ -85,10 +85,10 @@ class DataMapper {
 
         var values = [];
         values.push(value);
-        this.database.insertItem(values);
+        this.database.insertItem(values, callback);
     }
 
-    updateItem(info){
+    updateItem(id, info, callback){
         var value = [];
         value.push(info.itemType);
         value.push(info.title);
@@ -113,11 +113,11 @@ class DataMapper {
 
         var values = [];
         values.push(value);
-        this.database.updateItem(values);
+        this.database.updateItem(values, id, callback);
     }
 
-    deleteItem(id){
-        this.database.deleteItem(id);
+    deleteItem(id, callback){
+        this.database.deleteItem(id, callback);
     }
 
     viewItem(itemType, id){
