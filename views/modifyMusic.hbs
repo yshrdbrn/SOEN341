@@ -1,5 +1,5 @@
 <html lang="en">
-<h1>ModifyMusic</h1>
+<h1>modifyMusic</h1>
 <head>
     <meta charset="UTF-8">
     <style type="text/css">
@@ -8,7 +8,8 @@
 </head>
 <body>
 <div>
-    <form action="/panel/catalog/modify/{{info.id}}" method="post">
+    <div>modifyMusic</div>
+<form action="/panel/catalog/modify/{{info.id}}" method="post">
 		<input type="hidden" name="id" value="{{info.id}}">
 		<input type="hidden" name="itemType" value="{{info.itemType}}">
         <span>type:</span><input type="text" name="type" value="{{info.type}}"><br>
@@ -17,7 +18,7 @@
         <span>label:</span>label ：<input type="text" name="label" value="{{info.label}}{{info.dubbed}}"><br>
         <span>releaseDate:</span><input type="text" name="releaseDate" value="{{info.releaseDate}}"><br>
         <span>asin:</span><input type="text" name="asin" value="{{info.asin}}"><br>
-        <button>ModifyMusic</button>
+        <button>modifyMusic</button>
     </form>
 </div>
 </body>

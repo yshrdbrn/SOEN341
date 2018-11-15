@@ -1,13 +1,14 @@
 <html lang="en">
-<h1>ModifyMovie</h1>
+<h1>modifyMovie</h1>
 <head>
     <meta charset="UTF-8">
-    <!--<style type="text/css">-->
-        <!--span{padding-right:10px;width:6em;display:block;float:left;}-->
-    <!--</style>-->
+    <style type="text/css">
+        span{padding-right:10px;width:6em;display:block;float:left;}
+    </style>
 </head>
 <body>
 <div>
+    <div>modifyMovie</div>
     <form action="/panel/catalog/modify/{{info.id}}" method="post">
         <input type="hidden" name="id" value="{{info.id}}">
 		<input type="hidden" name="itemType" value="{{info.itemType}}">
@@ -18,7 +19,7 @@
         <span>dubbed:</span><input type="text" name="dubbed"  value="{{info.dubbed}}"><br>
         <span>releaseDate:</span><input type="text" name="releaseDate" value="{{info.releaseDate}}"><br>
         <span>runTime:</span><input type="text" name="runTime" value="{{info.runTime}}"><br>
-        <button>ModifyMovie</button>
+        <button>modifyMovie</button>
     </form>
 
 </div>

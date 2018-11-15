@@ -1,0 +1,28 @@
+<html lang="en">
+<h1>modifyBook</h1>
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        span{padding-right:10px;width:6em;display:block;float:left;}
+    </style>
+</head><body>
+<div>
+	<form action="/panel/catalog/modify/{{info.id}}" method="post">
+		<input type="hidden" name="id" value="{{info.id}}">
+		<input type="hidden" name="itemType" value="{{info.itemType}}">
+		<span>title:</span><input type="text" name="title" value="{{info.title}}"><br>
+		<span>author:</span><input type="text" name="author" value="{{info.author}}"><br>
+		<span>format:</span><input type="text" name="category" value="{{info.format}}"><br>
+		<span>pages</span><input type="text" name="pages" value="{{info.pages}}"><br>
+        <span>publisher:</span><input type="text" name="publisher" value="{{info.publisher}}"><br>
+        <span>language:</span><input type="text" name="language" value="{{info.language}}"><br>
+        <span>isbn10:</span><input type="text" name="isbn10" value="{{info.isbn10}}"><br>
+        <span>isbn13:</span><input type="text" name="isbn13" value="{{info.isbn13}}"><br>
+		<button>modifyBook</button>
+
+	</form>
+    
+        
+</div>
+</body>

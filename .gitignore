@@ -89,4 +89,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# VS Code
+.vscode
+
 model/evantest.js

@@ -1,0 +1,36 @@
+<p>
+    <a href="/panel/catalog/add">Add An Item</a>
+</p>
+
+{{#each items as |item|}}
+<table>
+    <thead>
+    {{#each item}}
+        {{#if . }}
+            <th>{{@key}}</th>
+        {{/if}}
+    {{/each}}
+    </thead>
+    <tbody>
+        <tr>
+        {{#each item}}
+            {{#if . }}
+                <td>{{.}}</td>
+            {{/if}}    
+        {{/each}}
+        <td>
+            <form action="/panel/catalog/modify/{{item.id}}" method="get">
+            <button>Modify</button>
+            </form>
+        </td>
+
+        <td>
+            <form action="/panel/catalog/delete/{{item.id}}" method="post">
+            <button>Delete</button>
+            </form>
+        </td>
+        </tr>
+    </tbody>
+
+</table>
+{{/each}}

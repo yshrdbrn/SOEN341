@@ -1,15 +1,19 @@
 <h1>Panel</h1>
-{{#if isAdmin}}
+{{#if isadmin}}
 <p>
     <a href="/panel/registerAdmin">Register Admin</a>
 </p>
 {{/if}}
 
-{{#if isAdmin}}
+{{#if isadmin}}
 <p>
     <a href="/panel/usersList">List of Users</a>
 </p>
 {{/if}}
+
+<p>
+    <a href="/panel/catalog">Item Catalog</a>
+</p>
 
 <p>
     <a href="/logout">Log out</a>

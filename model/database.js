@@ -50,12 +50,30 @@ class Database{
     this.mydisconnect();
   }
 
-  selectAllUsers(){
+  findUser(email,password,callback){
     this.myconnect();
-  this.con.query("SELECT * FROM Users", function (err, result) {
-    if (err) throw err;
-    console.log(result);
-    return result;
+    this.con.query("SELECT * FROM users WHERE email = ? AND password = ?", [email,password],function(err,result){
+      if(err) throw err;
+      callback(result);
+    });
+    this.mydisconnect();
+  }
+
+  userExists(email,callback){
+    this.myconnect();
+    var sql = "SELECT * FROM users WHERE email = ?";
+    this.con.query(sql,[email],function(err,result){
+      if(err) throw err;
+      callback(result);
+    });
+    this.mydisconnect();
+  }
+
+  selectAllUsers(callback){
+    this.myconnect();
+  this.con.query("SELECT * FROM users", function (err, result) {
+    if (err) console.log(err);
+    callback(result);
   });
     this.mydisconnect();
 }
@@ -91,6 +109,17 @@ class Database{
       console.log(`Deleted ${result.affectedRows} row(s)`);
     }
   );
+    this.mydisconnect();
+  }
+
+  viewItem(itemType, title, callback){
+    this.myconnect();
+    var sql = "SELECT * FROM Item WHERE itemType = ? AND title = ?";
+    this.con.query(sql, itemType, title, function(err, result){
+      if (err) throw err;
+      console.log(`Displayed ${result.affectedRows} row(s)`);
+    }
+    );
     this.mydisconnect();
   }
 
