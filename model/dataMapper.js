@@ -129,6 +129,14 @@ class DataMapper {
 
         });
     }
+
+    getItem(id, callback){
+        this.database.getItem( id, function(myItem){
+            callback(new Item(myItem));
+            
+        });
+
+    }
 }
 
 module.exports = DataMapper;

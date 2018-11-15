@@ -123,5 +123,14 @@ class Database{
     this.mydisconnect();
   }
 
+  getItem(id, callback){
+    this.myconnect();
+    var sql = "SELECT * FROM Item WHERE itemid = ?";
+    this.con.query(sql,id,function(err,result){
+      if (err) throw err;
+      console.log(`Displayed ${result.affectedRows} row(s)`);
+    });
+    this.mydisconnect();
+  }
 }
 module.exports = Database;
