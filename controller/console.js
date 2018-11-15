@@ -47,8 +47,6 @@ class Console {
       });
     }
 
-    findUser(id) { return this.registry.findUser(id); }
-
     addItem(info) { this.itemCatalog.addItem(info); }
 
     removeItem(id) { this.itemCatalog.removeItem(id); }
