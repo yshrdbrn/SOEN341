@@ -1,13 +1,54 @@
 body {
+  background-image: url(loginbac.png);
+
+  background-color:rgba(240,255,255,0.5);
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+    position: absolute;
+    left:50%;
+    top:50%;
+  
+    margin-left:-300px;
+    margin-top:-300px;
+    border-radius:10px;
 }
+
+
+td {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+  color: #4f6b72;
+}
+  
+th {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+
+}
+
 
 a {
-  color: #00B7FF;
+  color: #2980B9;
+
 }
 
+form{
 
+  display:inline-block;
+  width:60px;
+  text-align:right;
+  overflow:text-bottom;
+}
 
 
 /* Dropdown Button */
