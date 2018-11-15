@@ -1,0 +1,24 @@
+<html lang="en">
+<h1>modifyMusic</h1>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        span{padding-right:10px;width:6em;display:block;float:left;}
+    </style>
+</head>
+<body>
+<div>
+    <div>modifyMusic</div>
+    <form action="/panel/catalog/modifyMusic/:item_id" method="post">
+        <input type="hidden" name="id" value="{{id}}">
+        <span>type:</span><input type="text" name="type" value="{{info.type}}"><br>
+        <span>title:</span><input type="text" name="title" value="{{info.title}}"><br>
+        <span>artist</span><input type="text" name="artist" value="{{info.artist}}"><br>
+        <span>label:</span>label ：<input type="text" name="label" value="{{info.label}}{{info.dubbed}}"><br>
+        <span>releaseDate:</span><input type="text" name="releaseDate" value="{{info.releaseDate}}"><br>
+        <span>asin:</span><input type="text" name="asin" value="{{info.asin}}"><br>
+        <button>modifyMusic</button>
+    </form>
+</div>
+</body>
+</html>

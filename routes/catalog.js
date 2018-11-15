@@ -12,7 +12,7 @@ router.get('/panel/catalog',
     }
 );
 
-// Add item
+// Add item 
 router.get('/panel/catalog/add',
     function(req, res) {
             res.locals.message = req.flash('error');
@@ -71,9 +71,25 @@ router.delete('/panel/catalog/:item_id',
 );
 
 // Modify item with id: item_id
-router.put('/panel/catalog/:item_id',
+router.get('/panel/catalog/modify/:item_id',
     function(req, res) {
+        var item = Console.getItem(req.params.item_id);
+        console.log(item);
+        res.locals.message = req.flash('error');
+        res.locals.item = item;
+        if (item.itemType == 'Music') res.render('modifyMusic');
+        if (item.itemType == 'Video') res.render('modifyVideo');
+        if (item.itemType == 'Magezine') res.render('modifyMusic');
+        if (item.itemType == 'Book') res.render('modifyBook');
+        if (item.itemType == 'Movie') res.render('modifyMovie');
     }
 );
+router.post('/panel/catalog/modify/Book/:item_id',
+   function(req,res){
+    res.locals.message = req.flash('error');
+    res.render('modifyBook');   
+   }
+)
+
 
 module.exports = router;

@@ -18,18 +18,19 @@
                 <td>{{.}}</td>
             {{/if}}    
         {{/each}}
+        <td>
+            <form action="/panel/catalog/modify/{{item.id}}" method="get">
+            <button>Modify</button>
+            </form>
+        </td>
+
+        <td>
+            <form action="/panel/catalog/delete/{{item.id}}" method="post">
+            <button>Delete</button>
+            </form>
+        </td>
         </tr>
     </tbody>
-    <table>
-         {{#if item.id}}
-            <form method="router.put" action="/panel/catalog/:item_id">
-            <button type="submit">Modify</button>
-            </form>
-        {{/if}}
-    </table>
-
-    
-
 
 </table>
 {{/each}}
