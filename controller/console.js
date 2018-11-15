@@ -13,6 +13,8 @@ class Console {
       if (user) this.registry.logout(user, callback); 
     }
 
+    findUser(id) { return this.registry.findUser(id); }
+
     registerAdmin(info,callback) {
        this.registry.addNewAdmin(info,function(success){
         if(success){

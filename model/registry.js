@@ -41,6 +41,13 @@ class Registry {
         return user.isadmin;
     }
 
+    findUser(id) {
+      for (var i = 0; i < this.userList.length; i++) {
+          if (this.userList[i].id == id)
+              return this.userList[i];
+      }
+    }
+
     getUserWithCredentials(email, password,callback) {
       var that = this;
         this.dataMapper.findUser(email,password,function(user){
