@@ -12,61 +12,56 @@ router.get('/panel/catalog',
     }
 );
 
-// Add item 
+// Add item
 router.get('/panel/catalog/add',
     function(req, res) {
             res.locals.message = req.flash('error');
-            res.render('add'); 
+            res.render('add');
     }
 );
 router.get('/panel/catalog/add/book',
    function(req,res){
     res.locals.message = req.flash('error');
-    res.render('addBook');   
+    res.render('addBook');
    }
 );
-router.post('/panel/catalog/add/book',
-    function(req,res){
-        Console.addItem(req.body);
-        res.redirect('/panel/catalog');
-    })
+
 router.get('/panel/catalog/add/Music',
    function(req,res){
     res.locals.message = req.flash('error');
-    res.render('addMusic');   
+    res.render('addMusic');
    }
 )
-router.post('/panel/catalog/add/Music',
-    function(req,res){
-        Console.addItem(req.body);
-        res.redirect('/panel/catalog');
-    })
+
 router.get('/panel/catalog/add/Magazine',
    function(req,res){
     res.locals.message = req.flash('error');
-    res.render('addMagazine');   
+    res.render('addMagazine');
    }
 )
-router.post('/panel/catalog/add/Magazine',
-    function(req,res){
-        Console.addItem(req.body);
-        res.redirect('/panel/catalog');
-    })
+
 router.get('/panel/catalog/add/Movie',
    function(req,res){
     res.locals.message = req.flash('error');
-    res.render('addMovie');   
+    res.render('addMovie');
    }
 )
-router.post('/panel/catalog/add/Movie',
-    function(req,res){
-        Console.addItem(req.body);
-        res.redirect('/panel/catalog');
-    })
+
+router.post('/panel/catalog/add',
+    function(req, res) {
+        Console.addItem(req.body, function() {
+            res.redirect('/panel/catalog');
+        })
+    }
+);
+
 
 // Delete item with id: item_id
-router.delete('/panel/catalog/:item_id',
+router.post('/panel/catalog/delete/:item_id',
     function(req, res) {
+        id = req.params.item_id;
+        Console.removeItem(id);
+        res.redirect('/panel/catalog');
     }
 );
 
@@ -87,8 +82,8 @@ router.get('/panel/catalog/modify/:item_id',
 
 router.post('/panel/catalog/modify/:item_id',
    function(req,res){
-        Console.modifyItem(req.params.item_id, req.body);
-        res.redirect('/panel/catalog');
+      Console.modifyItem(req.params.item_id, req.body);
+      res.redirect('/panel/catalog');
    }
 )
 
