@@ -46,9 +46,10 @@ router.get('/',
 
 
 router.get('/logout', function(req, res) {
-    req.logout();
-    Console.logout(req.user);
-    res.redirect('/');
+    Console.logout(req.user, function() {
+      req.logout();
+      res.redirect('/');
+    });
 });
 
 

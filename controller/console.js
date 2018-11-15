@@ -9,7 +9,9 @@ class Console {
 
     login(user) { this.registry.login(user); }
 
-    logout(user) { if (user) this.registry.logout(user); }
+    logout(user, callback) { 
+      if (user) this.registry.logout(user, callback); 
+    }
 
     registerAdmin(info,callback) {
        this.registry.addNewAdmin(info,function(success){
