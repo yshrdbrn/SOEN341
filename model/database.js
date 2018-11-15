@@ -128,7 +128,18 @@ class Database{
     var sql = "SELECT * FROM Item WHERE itemid = ?";
     this.con.query(sql,id,function(err,result){
       if (err) throw err;
-      console.log(`Displayed ${result.affectedRows} row(s)`);
+
+      callback(result);
+    });
+    this.mydisconnect();
+  }
+
+  getAllItems(callback){
+    this.myconnect();
+    var sql = "SELECT * FROM Items";
+    this.con.query(sql, function(err,result){
+      if (err) throw err;
+      callback(result);
     });
     this.mydisconnect();
   }
