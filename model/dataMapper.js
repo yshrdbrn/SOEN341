@@ -120,14 +120,32 @@ class DataMapper {
         this.database.deleteItem(id, callback);
     }
 
-    viewItem(itemType, id){
-        this.database.viewItem(itemType,title, function(items){
-            var objectItems = [];
-            for(item in items){
-                objectItems.push(new Item(item));
-            }
+    // searchItem(fields, callback){
+    //     this.database.viewItem(itemType,title, function(items){
+    //         var objectItems = [];
+    //         for(item in items){
+    //             objectItems.push(new Item(item));
+    //         }
+
+    //     });
+    // }
+
+    getItem(id, callback){
+        this.database.getItem( id, function(myItem){
+            callback(new Item(myItem[0]));
 
         });
+
+    }
+
+    getAllItems(callback){
+        this.database.getAllItems( function(itemsList){
+            var items = [];
+            for (var i in itemsList){
+                items.push(new Item(itemsList[i]));
+            }
+            callback(items);
+        })
     }
 }
 

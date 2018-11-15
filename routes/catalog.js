@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var helper = require('../helperFunctions/checkAuthentication');
 
 var Console = require('../controller/console');
 
@@ -58,7 +59,12 @@ router.post('/panel/catalog/add',
 
 
 // Delete item with id: item_id
+<<<<<<< HEAD
 router.post('/panel/catalog/delete/:item_id',
+=======
+router.delete('/panel/catalog/:item_id',
+    helper.checkIfUserIsAdmin,
+>>>>>>> db
     function(req, res) {
         id = req.params.item_id;
         Console.removeItem(id, function() {
@@ -68,7 +74,12 @@ router.post('/panel/catalog/delete/:item_id',
 );
 
 // Modify item with id: item_id
+<<<<<<< HEAD
 router.get('/panel/catalog/modify/:item_id',
+=======
+router.put('/panel/catalog/:item_id',
+    helper.checkIfUserIsAdmin,
+>>>>>>> db
     function(req, res) {
         var item = Console.getItem(req.params.item_id, function() {
             res.locals.message = req.flash('error');
