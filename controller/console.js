@@ -49,15 +49,15 @@ class Console {
       });
     }
 
-    addItem(info) { this.itemCatalog.addItem(info); }
+    addItem(info, callback) { this.itemCatalog.addItem(info); }
 
-    removeItem(id) { this.itemCatalog.removeItem(id); }
+    removeItem(id, callback) { this.itemCatalog.removeItem(id); }
 
-    modifyItem(id, info) { this.itemCatalog.modifyItem(id, info); }
+    modifyItem(id, info, callback) { this.itemCatalog.modifyItem(id, info); }
 
-    allItems() { return this.itemCatalog.allItems(); }
+    allItems(callback) { return this.itemCatalog.allItems(); }
 
-    getItem(id) {return this.itemCatalog.getItem(id); }
+    getItem(id, callback) {return this.itemCatalog.getItem(id); }
 }
 
 module.exports = new Console();
