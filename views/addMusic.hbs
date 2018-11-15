@@ -3,12 +3,14 @@
 {{/if}}
 <h1>Add Music</h1>
 <form action="/panel/catalog/add/Music" method="post">
+    <input type="text" name="itemType" value="Music" readonly><br>
    <input type="text" name="type"placeholder="Type"><br>
    <input type="text" name="title" placeholder="Title"><br>
-   <input type="text" name="Artist"placeholder="Artist"><br>
-   <input type="text" name="Label"placeholder="Label"><br>
-   <input type="date" name="date"placeholder="release Date"><br>
-   <input type="text" name="Run"placeholder="Run Time"><br>
+   <input type="text" name="artist"placeholder="Artist"><br>
+   <input type="text" name="label"placeholder="Label"><br>
+
+   <input type="text" name="runTime"placeholder="Run Time"><br>
+    <input  type="date" name="releaseDate"placeholder="release Date"><br>
 
   <button>Add Music</button>
 </form>
