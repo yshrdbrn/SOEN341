@@ -8,30 +8,17 @@
     </style>
 </head><body>
 <div>
-<<<<<<< HEAD
 	<form action="/panel/catalog/modify/{{info.id}}" method="post">
 		<input type="hidden" name="id" value="{{info.id}}">
 		<input type="hidden" name="itemType" value="{{info.itemType}}">
-		title    ：<input type="text" name="title" value="{{info.title}}"><br>
-		author   ：<input type="text" name="author" value="{{info.author}}"><br>
-		format   ：<input type="text" name="category" value="{{info.format}}"><br>
-		pages    ：<input type="text" name="pages" value="{{info.pages}}"><br>
-        publisher: <input type="text" name="publisher" value="{{info.publisher}}"><br>
-        language : <input type="text" name="language" value="{{info.language}}"><br>
-        isbn10   : <input type="text" name="isbn10" value="{{info.isbn10}}"><br>
-        isbn13   : <input type="text" name="isbn13" value="{{info.isbn13}}"><br>
-=======
-	<form action="/panel/catalog/modifyBook/:item_id" method="post">
-		<input type="hidden" name="id" value="{{item_id}}">
-        <span>type:</span><input type="text" name="title" value="{{info.ptitle}}"><br>
-        <span>author:</span><input type="text" name="author" value="{{info.author}}"><br>
-        <span>format:</span><input type="text" name="category" value="{{info.format}}"><br>
-        <span>pages:</span><input type="text" name="pages" value="{{info.pages}}"><br>
+		<span>title:</span><input type="text" name="title" value="{{info.title}}"><br>
+		<span>author:</span><input type="text" name="author" value="{{info.author}}"><br>
+		<span>format:</span><input type="text" name="category" value="{{info.format}}"><br>
+		<span>pages</span><input type="text" name="pages" value="{{info.pages}}"><br>
         <span>publisher:</span><input type="text" name="publisher" value="{{info.publisher}}"><br>
         <span>language:</span><input type="text" name="language" value="{{info.language}}"><br>
         <span>isbn10:</span><input type="text" name="isbn10" value="{{info.isbn10}}"><br>
         <span>isbn13:</span><input type="text" name="isbn13" value="{{info.isbn13}}"><br>
->>>>>>> 6f943d03f6b6653d3d165687b640c2115b023bf6
 		<button>modifyBook</button>
 
 	</form>
