@@ -1,3 +1,5 @@
+
+<h1>modifyBook</h1>
 <html lang="en">
 <h1>modifyMagazine</h1>
 
@@ -9,8 +11,10 @@
 </head>
 <body>
 <div>
-    <form action="/panel/catalog/modifyMagazine/:item_id" method="post">
-        <input type="hidden" name="id" value="{{id}}">
+    <div>modifyMagazine</div>
+<form action="/panel/catalog/modify/{{info.id}}" method="post">
+		<input type="hidden" name="id" value="{{info.id}}">
+		<input type="hidden" name="itemType" value="{{info.itemType}}">
         <span>title:</span><input type="text" name="title" value="{{info.title}}"><br>
         <span>publisher:</span><input type="text" name="publisher" value="{{info.publisher}}"><br>
         <span>language:</span><input type="text" name="language"  value="{{info.language}}"><br>

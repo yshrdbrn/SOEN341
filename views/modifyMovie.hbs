@@ -8,8 +8,10 @@
 </head>
 <body>
 <div>
-    <form action="/panel/catalog/modifyMovie/:item_id" method="post">
-        <input type="hidden" name="id" value="{{id}}">
+    <div>modifyMovie</div>
+    <form action="/panel/catalog/modify/{{info.id}}" method="post">
+        <input type="hidden" name="id" value="{{info.id}}">
+		<input type="hidden" name="itemType" value="{{info.itemType}}">
         <span>director:</span><input type="text" name="director"  value="{{info.director}}"><br>
         <span>producers:</span><input type="text" name="producers"  value="{{info.producers}}"><br>
         <span>actors:</span><input type="text" name="actors"  value="{{info.actors}}"><br>
