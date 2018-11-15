@@ -3,13 +3,14 @@
 {{/if}}
 <h1>Add Movie</h1>
 <form action="/panel/catalog/add/Movie" method="post">
+<input type="text" name="itemType" value="Movie" readonly><br>
    <input type="text" name="title" placeholder="Title"><br>
-   <input type="text" name="Director"placeholder="Director"><br>
-   <input type="text" name="Actors"placeholder="Actors"><br>
+   <input type="text" name="director"placeholder="Director"><br>
+   <input type="text" name="actors"placeholder="Actors"><br>
    <input type="text" name="language"placeholder="language"><br>
   <input type="text"  name="subtitles"placeholder="subtitles"><br>
-   <input type="text" name="Dubbed"placeholder="Dubbed"><br>
-   <input type="date" name="Release"placeholder="Release Date"><br>
-   <input type="text" name="run"placeholder="Run Time"><br>
+   <input type="text" name="dubbed"placeholder="Dubbed"><br>
+   <input type="date" name="release"placeholder="Release Date"><br>
+   <input type="text" name="runTime"placeholder="Run Time"><br>
   <button>Add Movie</button>
 </form>
