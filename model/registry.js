@@ -61,7 +61,10 @@ class Registry {
     }
 
     getUsersList(callback) {
-        callback(this.activeUsers);
+        if(user.isadmin)
+            callback(this.activeUsers);
+        else
+        console.log("Unauthorized access");
     }
 
     login(user) {
