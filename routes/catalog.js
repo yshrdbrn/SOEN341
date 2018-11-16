@@ -71,7 +71,7 @@ router.post('/panel/catalog/delete/:item_id',
 // Modify item with id: item_id
 router.get('/panel/catalog/modify/:item_id',
     function(req, res) {
-        var item = Console.getItem(req.params.item_id, function() {
+        Console.getItem(req.params.item_id, function(item) {
             res.locals.message = req.flash('error');
             res.locals.info = item;
             if (item.itemType == 'Music') res.render('modifyMusic');

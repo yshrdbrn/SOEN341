@@ -15,7 +15,7 @@ class ItemCatalog {
     }
 
     modifyItem(id, info, callback) {
-        this.dataMapper.modifyItem(id, info, callback);
+        this.dataMapper.updateItem(id, info, callback);
     }
 
     allItems(callback) {

@@ -139,7 +139,7 @@ class Database{
 
   getAllItems(callback){
     this.myconnect();
-    var sql = "SELECT * FROM Items";
+    var sql = "SELECT * FROM Item";
     this.con.query(sql, function(err,result){
       if (err) throw err;
       callback(result);
