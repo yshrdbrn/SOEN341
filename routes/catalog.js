@@ -8,6 +8,9 @@ var Console = require('../controller/console');
 router.get('/panel/catalog',
     function(req, res) {
         Console.allItems(function(items) {
+            for (var i = 0; i < items.length; i++) {
+                items[i].id = undefined;
+            }
             res.locals.items = items;
             res.render('catalog');
         })
