@@ -18,16 +18,12 @@ class ItemCatalog {
         this.dataMapper.modifyItem(id, info, callback);
     }
 
-    allItems() {
-        return this.items;
+    allItems(callback) {
+        this.dataMapper.getAllItems(callback);
     }
 
-    getItem(id) {
-        for (var i = 0; i < this.items.length; i++) {
-            if (this.items[i].id == id) {
-                return this.items[i];
-            }
-        }
+    getItem(id, callback) {
+        this.dataMapper.getItem(id, callback);
     }
 }
 
