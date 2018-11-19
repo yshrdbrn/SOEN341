@@ -14,6 +14,11 @@ router.get('/panel/catalog',
     }
 );
 
+// Check if user is admin for all CRUD operations on catalog
+router.use('/panel/catalog/*',
+    helper.checkIfUserIsAdmin
+);
+
 // Add item
 router.get('/panel/catalog/add',
     function(req, res) {
