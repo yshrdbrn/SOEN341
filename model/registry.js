@@ -73,7 +73,6 @@ class Registry {
 
     logout(user, callback) {
         let index = this.activeUsers.indexOf(user);
-        console.log(index);
         if (index != -1) this.activeUsers.splice(index, 1);
         callback();
     }

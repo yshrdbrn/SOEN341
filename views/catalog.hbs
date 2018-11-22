@@ -1,6 +1,8 @@
+{{#if isadmin}}
 <p>
     <a href="/panel/catalog/add">Add An Item</a>
 </p>
+{{/if}}
 
 {{#each items as |item|}}
 <table>
@@ -18,6 +20,8 @@
                 <td>{{.}}</td>
             {{/if}}    
         {{/each}}
+
+        {{#if isadmin}}
         <td>
             <form action="/panel/catalog/modify/{{item.id}}" method="get">
             <button>Modify</button>
@@ -29,6 +33,7 @@
             <button>Delete</button>
             </form>
         </td>
+        {{/if}}
         </tr>
     </tbody>
 
