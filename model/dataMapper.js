@@ -120,15 +120,7 @@ class DataMapper {
         this.database.deleteItem(id, callback);
     }
 
-    // searchItem(fields, callback){
-    //     this.database.viewItem(itemType,title, function(items){
-    //         var objectItems = [];
-    //         for(item in items){
-    //             objectItems.push(new Item(item));
-    //         }
-
-    //     });
-    // }
+    
 
     getItem(id, callback){
         this.database.getItem( id, function(myItem){
@@ -138,13 +130,34 @@ class DataMapper {
 
     }
 
-    getAllItems(callback){
+    getAllItems(info, callback){
         this.database.getAllItems( function(itemsList){
+            
             var items = [];
-            for (var i in itemsList){
-                items.push(new Item(itemsList[i]));
+            if(info == null){
+                for(var i in itemsList){
+                    items.push(new Item(itemsList[i]));
+                }
+                callback(items);
             }
-            callback(items);
+            else{
+                var keys = Object.keys(itemsList[0]);
+                for(var i in itemsList){
+                    for(var j in keys){
+                        console.log("checking:"+JSON.stringify(itemsList[i][keys[j]]));
+                        if(String(itemsList[i][keys[j]]).indexOf(info.searchString) != -1){
+                            items.push(new Item(itemsList[i]));
+                            break;
+                        }
+                    }
+                }
+                var sorted = items.sort((a, b) => {
+                    return a[info.sortBy].localeCompare(b[info.sortBy])
+                  });
+                callback(sorted);
+            }
+
+
         })
     }
 }

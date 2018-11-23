@@ -1,0 +1,20 @@
+{{#each items as |item|}}
+<table>
+    <thead>
+    {{#each item}}
+        {{#if . }}
+            <th>{{@key}}</th>
+        {{/if}}
+    {{/each}}
+    </thead>
+    <tbody>
+        <tr>
+        {{#each item}}
+            {{#if . }}
+                <td>{{.}}</td>
+            {{/if}}    
+        {{/each}}
+</tr>
+</tbody>
+</table>
+{{/each}}

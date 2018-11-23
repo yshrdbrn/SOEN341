@@ -55,7 +55,7 @@ class Console {
 
     modifyItem(id, info, callback) { this.itemCatalog.modifyItem(id, info, callback); }
 
-    allItems(callback) { return this.itemCatalog.allItems(callback); }
+    allItems(info, callback) { return this.itemCatalog.allItems(info, callback); }
 
     getItem(id, callback) {return this.itemCatalog.getItem(id, callback); }
 }

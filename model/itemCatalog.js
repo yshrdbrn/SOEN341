@@ -18,8 +18,8 @@ class ItemCatalog {
         this.dataMapper.updateItem(id, info, callback);
     }
 
-    allItems(callback) {
-        this.dataMapper.getAllItems(callback);
+    allItems(info, callback) {
+        this.dataMapper.getAllItems(info, callback);
     }
 
     getItem(id, callback) {

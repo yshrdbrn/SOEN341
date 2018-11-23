@@ -7,13 +7,13 @@ var Console = require('../controller/console');
 // Get all items in catalog
 router.get('/panel/catalog',
     function(req, res) {
-        Console.allItems(function(items) {
+        Console.allItems(null,function(items) {
             for (var i = 0; i < items.length; i++) {
                 items[i].id = undefined;
             }
             res.locals.items = items;
             res.render('catalog');
-        })
+        });
     }
 );
 
@@ -22,6 +22,22 @@ router.use('/panel/catalog/*',
     helper.checkIfUserIsAdmin
 );
 
+// Search and Sort
+
+
+router.post('/panel/catalog/search',
+    function(req, res) {
+        Console.allItems(req.body, function(items) {
+            for (var i = 0; i < items.length; i++) {
+                items[i].id = undefined;
+            }
+            res.locals.items = items;
+            res.render('search');
+        })
+    }
+);
+
+
 // Add item
 router.get('/panel/catalog/add',
     function(req, res) {
@@ -29,6 +45,9 @@ router.get('/panel/catalog/add',
             res.render('add');
     }
 );
+
+
+
 router.get('/panel/catalog/add/book',
    function(req,res){
     res.locals.message = req.flash('error');
@@ -79,7 +98,7 @@ router.post('/panel/catalog/delete/:item_id',
 // Modify item with id: item_id
 router.get('/panel/catalog/modify/:item_id',
     function(req, res) {
-        Console.getItem(req.params.item_id, function(item) {
+        Console.getItems(req.params.item_id, function(item) {
             res.locals.message = req.flash('error');
             res.locals.info = item;
             if (item.itemType == 'Music') res.render('modifyMusic');
