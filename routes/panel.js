@@ -10,6 +10,7 @@ router.use('/panel',
 
 router.get('/panel',
     function(req, res) {
+        res.locals.isadmin = req.user.isadmin;
         res.render('panel');
     }
 );
