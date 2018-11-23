@@ -144,7 +144,6 @@ class DataMapper {
                 var keys = Object.keys(itemsList[0]);
                 for(var i in itemsList){
                     for(var j in keys){
-                        console.log("checking:"+JSON.stringify(itemsList[i][keys[j]]));
                         if(String(itemsList[i][keys[j]]).indexOf(info.searchString) != -1){
                             items.push(new Item(itemsList[i]));
                             break;
