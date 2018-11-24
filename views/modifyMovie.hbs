@@ -1,4 +1,7 @@
 <html lang="en">
+<p>
+    <a href="/panel/">Home</a>
+</p>
 <h1>ModifyMovie</h1>
 <head>
     <meta charset="UTF-8">
@@ -11,12 +14,14 @@
     <form action="/panel/catalog/modify/{{info.id}}" method="post">
         <input type="hidden" name="id" value="{{info.id}}">
 		<input type="hidden" name="itemType" value="{{info.itemType}}">
+        <span>title:</span><input type="text" name="title"  value="{{info.title}}"><br>
         <span>director:</span><input type="text" name="director"  value="{{info.director}}"><br>
         <span>producers:</span><input type="text" name="producers"  value="{{info.producers}}"><br>
         <span>actors:</span><input type="text" name="actors"  value="{{info.actors}}"><br>
+        <span>language:</span><input type="text" name="language"  value="{{info.language}}"><br>
         <span>subtitles:</span><input type="text" name="subtitles"  value="{{info.subtitles}}"><br>
         <span>dubbed:</span><input type="text" name="dubbed"  value="{{info.dubbed}}"><br>
-        <span>releaseDate:</span><input type="text" name="releaseDate" value="{{info.releaseDate}}"><br>
+        <span>releaseDate:</span><input type="date" name="releaseDate" value="{{info.releaseDate}}"><br>
         <span>runTime:</span><input type="text" name="runTime" value="{{info.runTime}}"><br>
         <button>ModifyMovie</button>
     </form>

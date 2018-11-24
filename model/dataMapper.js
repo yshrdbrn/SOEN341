@@ -1,10 +1,25 @@
 const User = require('./user');
 const Item = require('./item');
 const Database = require('./database');
+const UnitOfWork = require('./unitofwork');
 
 class DataMapper {
     constructor() {
         this.database = new Database();
+        this.uow = new UnitOfWork(this);
+    }
+
+    registerNew(obj){
+      this.uow.registerNew(obj);
+    }
+    registerDirty(obj){
+      this.uow.registerDirty(obj);
+    }
+    registerRemoved(obj){
+      this.uow.registerRemoved(obj);
+    }
+    commit(){
+      this.uow.commit();
     }
 
     insertUser(info) {
@@ -60,7 +75,7 @@ class DataMapper {
         });
     }
 
-    insertItem(info, callback){
+    insertItem(info){
         var value = [];
         value.push(info.itemType);
         value.push(info.title);
@@ -85,10 +100,10 @@ class DataMapper {
 
         var values = [];
         values.push(value);
-        this.database.insertItem(values, callback);
+        this.database.insertItem(values);
     }
 
-    updateItem(id, info, callback){
+    updateItem(info){
         var value = [];
         value.push(info.itemType);
         value.push(info.title);
@@ -113,26 +128,24 @@ class DataMapper {
 
         var values = [];
         values.push(value);
-        this.database.updateItem(values, id, callback);
+        this.database.updateItem(values, info.id);
     }
 
-    deleteItem(id, callback){
-        this.database.deleteItem(id, callback);
+    deleteItem(item){
+        this.database.deleteItem(item.id);
     }
 
-    
+
 
     getItem(id, callback){
         this.database.getItem( id, function(myItem){
             callback(new Item(myItem[0]));
-
         });
-
     }
 
     getAllItems(info, callback){
         this.database.getAllItems( function(itemsList){
-            
+
             var items = [];
             if(info == null){
                 for(var i in itemsList){

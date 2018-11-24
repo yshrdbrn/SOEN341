@@ -17,7 +17,8 @@ class Registry {
           if(exists){
             callback(false);
           }else{
-           that.dataMapper.insertUser(user);
+           that.dataMapper.registerNew(user);
+           that.dataMapper.commit();
             callback(true);
           }
         });
@@ -31,7 +32,8 @@ class Registry {
           if(exists){
             callback(false);
           }else{
-            that.dataMapper.insertUser(user);
+            that.dataMapper.registerNew(user);
+            that.dataMapper.commit();
             callback(true);
           }
         });

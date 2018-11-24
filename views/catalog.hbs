@@ -1,27 +1,25 @@
+<p>
+    <a href="/panel/">Home</a>
+</p>
 {{#if isadmin}}
 <p>
     <a href="/panel/catalog/add">Add An Item</a>
 </p>
 {{/if}}
-<p>
-    <form action="/panel/catalog/search/" method="post">
-    <input type="text" name="searchString"> <br>
+
+    <form action="/panel/search/" method="post">
+    <input type="text" name="searchString"><button>Search</button>
     <label for="Sort by">Sort By:</label>
 
     <select name="sortBy">
-        <option value="itemid">Item ID</option>
+        <option value="itemType">Item Type</option>
         <option value="title">Title</option>
-        
-    </select><br>
-    <button>Search</button>
+    </select>
     </form>
-    
-</p>
 
-
-
-{{#each items as |item|}}
 <table>
+{{#each items as |item|}}
+
     <thead>
     {{#each item}}
         {{#if . }}
@@ -34,7 +32,7 @@
         {{#each item}}
             {{#if . }}
                 <td>{{.}}</td>
-            {{/if}}    
+            {{/if}}
         {{/each}}
 
         {{#if ../isadmin}}
@@ -53,5 +51,6 @@
         </tr>
     </tbody>
 
-</table>
+
 {{/each}}
+</table>

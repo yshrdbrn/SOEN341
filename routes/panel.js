@@ -56,4 +56,16 @@ router.get('/panel/usersList',
     }
 );
 
+router.post('/panel/search',
+    function(req, res) {
+        Console.allItems(req.body, function(items) {
+            for (var i = 0; i < items.length; i++) {
+                //items[i].id = undefined;
+            }
+            res.locals.items = items;
+            res.render('catalog');
+        })
+    }
+);
+
 module.exports = router;

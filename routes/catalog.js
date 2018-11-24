@@ -9,7 +9,7 @@ router.get('/panel/catalog',
     function(req, res) {
         Console.allItems(null,function(items) {
             for (var i = 0; i < items.length; i++) {
-                items[i].id = undefined;
+                //items[i].id = undefined;
             }
             res.locals.items = items;
             res.render('catalog');
@@ -21,22 +21,6 @@ router.get('/panel/catalog',
 router.use('/panel/catalog/*',
     helper.checkIfUserIsAdmin
 );
-
-// Search and Sort
-
-
-router.post('/panel/catalog/search',
-    function(req, res) {
-        Console.allItems(req.body, function(items) {
-            for (var i = 0; i < items.length; i++) {
-                items[i].id = undefined;
-            }
-            res.locals.items = items;
-            res.render('search');
-        })
-    }
-);
-
 
 // Add item
 router.get('/panel/catalog/add',
@@ -88,9 +72,10 @@ router.post('/panel/catalog/add',
 // Delete item with id: item_id
 router.post('/panel/catalog/delete/:item_id',
     function(req, res) {
-        id = req.params.item_id;
-        Console.removeItem(id, function() {
-            res.redirect('/panel/catalog');
+        var id = req.params.item_id;
+        Console.removeItem(id, function(result) {
+          console.log(result);
+          res.redirect('/panel/catalog');
         });
     }
 );
@@ -98,12 +83,13 @@ router.post('/panel/catalog/delete/:item_id',
 // Modify item with id: item_id
 router.get('/panel/catalog/modify/:item_id',
     function(req, res) {
-        Console.getItems(req.params.item_id, function(item) {
+        Console.getItem(req.params.item_id, function(item) {
+            //console.log(item);
             res.locals.message = req.flash('error');
             res.locals.info = item;
             if (item.itemType == 'Music') res.render('modifyMusic');
             if (item.itemType == 'Video') res.render('modifyVideo');
-            if (item.itemType == 'Magezine') res.render('modifyMusic');
+            if (item.itemType == 'Magazine') res.render('modifyMagazine');
             if (item.itemType == 'Book') res.render('modifyBook');
             if (item.itemType == 'Movie') res.render('modifyMovie');
         });

@@ -1,12 +1,15 @@
 {{#if message}}
     <div class="alert alert-danger">{{message}}</div>
 {{/if}}
+<p>
+    <a href="/panel/">Home</a>
+</p>
 <body>
 <h1>Add Item</h1>
 <div class = "dropdown">
-  <button onclick = "myFunction()" 
+  <button onclick = "myFunction()"
   class = "dropbtn"> Choose Item Type </button>
-  <div id = "myDropdown" 
+  <div id = "myDropdown"
   class = "dropdown-content">
     <a href = "/panel/catalog/add/book">Book</a>
     <a href = "/panel/catalog/add/Magazine">Magazine</a>
@@ -16,7 +19,7 @@
 </div>
 
 <script>
-/* When the user clicks on the button, 
+/* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
@@ -39,6 +42,3 @@ window.onclick = function(event) {
 </script>
 
 </body>
-
-
-

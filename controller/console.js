@@ -9,8 +9,8 @@ class Console {
 
     login(user) { this.registry.login(user); }
 
-    logout(user, callback) { 
-      if (user) this.registry.logout(user, callback); 
+    logout(user, callback) {
+      if (user) this.registry.logout(user, callback);
     }
 
     findUser(id) { return this.registry.findUser(id); }
@@ -40,7 +40,7 @@ class Console {
     getUsersList(callback) {
       this.registry.getUsersList(function(userslist){
         callback(userslist);
-      }); 
+      });
     }
 
     getUserWithCredentials(email, password,callback) {
@@ -49,13 +49,28 @@ class Console {
       });
     }
 
-    addItem(info, callback) { this.itemCatalog.addItem(info, callback); }
+    addItem(info, callback) {
+       this.itemCatalog.addItem(info, callback);
+       callback();
+    }
 
-    removeItem(id, callback) { this.itemCatalog.removeItem(id, callback); }
+    removeItem(id,callback) {
+      this.itemCatalog.removeItem(id,function(result){
+      callback(result);
+      });
+    }
 
-    modifyItem(id, info, callback) { this.itemCatalog.modifyItem(id, info, callback); }
+    modifyItem(id, info, callback){
+      this.itemCatalog.modifyItem(id, info, function(result){
+        callback(result);
+      });
+    }
 
-    allItems(info, callback) { return this.itemCatalog.allItems(info, callback); }
+    allItems(info, callback){
+      this.itemCatalog.allItems(info, function(items){
+        callback(items);
+      });
+    }
 
     getItem(id, callback) {return this.itemCatalog.getItem(id, callback); }
 }
