@@ -1,3 +1,12 @@
+
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
 body {
   background-image: url(loginbac.png);
   background-color:rgba(240,255,255,0.5);
@@ -9,6 +18,8 @@ body {
   margin-left:-300px;
   margin-top:-300px;
   border-radius:10px; 
+   display: table-cell;
+   vertical-align: middle;
 
 }
 
