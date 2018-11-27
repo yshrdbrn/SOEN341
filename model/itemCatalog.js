@@ -22,7 +22,7 @@ class ItemCatalog {
         this.dataMapper.getItem(id,function(item){
           that.dataMapper.registerRemoved(item);
           that.dataMapper.commit();
-          this.identityMap.clear();
+          that.identityMap.clear();
           callback(true);
         });
     }
