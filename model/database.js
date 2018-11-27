@@ -31,24 +31,24 @@ class Database{
   }
 
   insertUser(values){
-    this.myconnect();
+    // this.myconnect();
     var sql = "INSERT INTO Users (firstname,lastname,address,email,password,phonenumber,isadmin) VALUES ?";
     this.con.query(sql, [values], function (err, result) {
       if (err) throw err;
         console.log("1 record inserted, ID: " + result.insertId);
     });
-    this.mydisconnect();
+    // this.mydisconnect();
   }
 
   deleteUser(id){
-    this.myconnect();
+    // this.myconnect();
     this.con.query(
     'DELETE FROM Users WHERE id = ?', id, (err, result) => {
       if (err) throw err;
       console.log(`Deleted ${result.affectedRows} row(s)`);
     }
   );
-    this.mydisconnect();
+    // this.mydisconnect();
   }
 
   findUser(email,password,callback){
@@ -82,35 +82,35 @@ class Database{
 
 
   insertItem(values){
-    this.myconnect();
+    // this.myconnect();
     var sql = "INSERT INTO Item (itemType,title,author,format,pages,publisher,language,isbn10,isbn13,director, producers,actors,subtitles,dubbed,releaseDate,runTime,type,artist,label,asin  ) VALUES ?";
     this.con.query(sql, [values], function (err, result) {
       if (err) throw err;
       console.log("1 record inserted, ID: " + result.insertId);
     });
-    this.mydisconnect();
+    // this.mydisconnect();
   }
 
 
   updateItem(values,itemid, callback){
-    this.myconnect();
+    // this.myconnect();
     var sql = "UPDATE Item SET itemType = ?,title = ?,author = ?,format = ?,pages = ?,publisher = ?,language = ?,isbn10 = ?,isbn13 = ?,director = ?, producers = ?,actors = ?,subtitles = ?,dubbed = ?,releaseDate = ?,runTime = ?,type = ?,artist = ?,label = ?,asin = ? WHERE itemid = ?";
     this.con.query(sql, [values[0][0],values[0][1],values[0][2],values[0][3],values[0][4],values[0][5],values[0][6],values[0][7],values[0][8],values[0][9],values[0][10],values[0][11],values[0][12],values[0][13],values[0][14],values[0][15],values[0][16],values[0][17],values[0][18],values[0][19],itemid], function (err, result) {
       if (err) throw err;
         console.log(result.affectedRows + " record(s) updated");
     });
-    this.mydisconnect();
+    // this.mydisconnect();
   }
 
   deleteItem(id){
-    this.myconnect();
+    // this.myconnect();
     this.con.query(
     'DELETE FROM Item WHERE itemid = ?', id, (err, result) => {
       if (err) throw err;
       console.log(`Deleted ${result.affectedRows} row(s)`);
     }
   );
-    this.mydisconnect();
+    // this.mydisconnect();
   }
 
   viewItem(itemType, title, callback){

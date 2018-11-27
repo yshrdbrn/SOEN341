@@ -9,6 +9,14 @@ class DataMapper {
         this.uow = new UnitOfWork(this);
     }
 
+    openConnection() {
+      this.database.myconnect();
+    }
+
+    closeConnection() {
+      this.database.mydisconnect();
+    }
+
     registerNew(obj){
       this.uow.registerNew(obj);
     }
@@ -174,4 +182,4 @@ class DataMapper {
     }
 }
 
-module.exports = DataMapper;
+module.exports = new DataMapper();

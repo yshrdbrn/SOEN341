@@ -1,12 +1,13 @@
 const User = require('./user');
 const DataMapper = require('./dataMapper');
+const IdentityMap = require('./identityMap');
 
 class Registry {
     constructor() {
-        this.userList = [];
         this.activeUsers = [];
         this.idGen = 0;
-        this.dataMapper = new DataMapper();
+        this.dataMapper = DataMapper;
+        this.identityMap = new IdentityMap();
     }
 
     addNewClient(info,callback) {
@@ -44,18 +45,15 @@ class Registry {
     }
 
     findUser(id) {
-      for (var i = 0; i < this.userList.length; i++) {
-          if (this.userList[i].id == id)
-              return this.userList[i];
-      }
+      return this.identityMap.getObject(id);
     }
 
     getUserWithCredentials(email, password,callback) {
       var that = this;
         this.dataMapper.findUser(email,password,function(user){
           if(email == user.email && password == user.password){
-          that.userList.push(user);
-            callback(user);
+            let newUser = that.identityMap.add(user);
+            callback(newUser);
           }else{
             callback(false);
           }
@@ -77,6 +75,8 @@ class Registry {
         let index = this.activeUsers.indexOf(user);
         console.log(index);
         if (index != -1) this.activeUsers.splice(index, 1);
+
+        this.dataMapper.commit()
         callback();
     }
 }

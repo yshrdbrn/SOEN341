@@ -1,10 +1,11 @@
 const Item = require('./item');
 const DataMapper = require('./dataMapper');
+const IdentityMap = require('./identityMap');
 
 class ItemCatalog {
     constructor() {
-        this.dataMapper = new DataMapper();
-        this.catalog = [];
+        this.dataMapper = DataMapper;
+        this.identityMap = new IdentityMap();
     }
 
     addItem(info,callback) {
@@ -12,6 +13,7 @@ class ItemCatalog {
         console.log(item);
         this.dataMapper.registerNew(item);
         this.dataMapper.commit();
+        this.identityMap.clear();
         callback();
     }
 
@@ -20,6 +22,7 @@ class ItemCatalog {
         this.dataMapper.getItem(id,function(item){
           that.dataMapper.registerRemoved(item);
           that.dataMapper.commit();
+          this.identityMap.clear();
           callback(true);
         });
     }
@@ -29,17 +32,30 @@ class ItemCatalog {
       item.id = id;
       this.dataMapper.registerDirty(item);
       this.dataMapper.commit();
+      this.identityMap.clear();
       callback(true);
     }
 
     allItems(info, callback) {
-        this.dataMapper.getAllItems(info, function(items){
-          callback(items);
-        });
+        let that = this;
+        let items = this.identityMap.getAll();
+        if (items.length == 0) {
+          this.dataMapper.getAllItems(info, function(items){
+            that.identityMap.addAll(items);
+            callback(items);
+          });
+        } else {
+          return items;
+        }
     }
 
     getItem(id, callback) {
+        let that = this;
+        let item = this.identityMap.getObject(id);
+        if (item) return item;
+
         this.dataMapper.getItem(id,function(item){
+          that.identityMap.add(item);
           callback(item);
         });
     }

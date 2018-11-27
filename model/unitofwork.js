@@ -66,9 +66,11 @@ class UnitOfWork{
   }
 
   commit(){
+    this.mapper.openConnection();
     this.insertNew();
     this.updateDirty();
     this.deleteRemoved();
+    this.mapper.closeConnection();
   }
 
   insertNew(){
