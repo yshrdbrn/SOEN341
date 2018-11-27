@@ -2,14 +2,13 @@ body {
   background-image: url(loginbac.png);
   background-color:rgba(240,255,255,0.5);
   padding: 50px;
-  margin-left:-300px;
-  margin-top:-300px;
-  border-radius:10px; 
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
   position: absolute;
   left:50%;
   top:50%;
-	
+  margin-left:-300px;
+  margin-top:-300px;
+  border-radius:10px; 
 
 }
 
