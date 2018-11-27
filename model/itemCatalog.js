@@ -37,16 +37,9 @@ class ItemCatalog {
     }
 
     allItems(info, callback) {
-        let that = this;
-        let items = this.identityMap.getAll();
-        if (items.length == 0) {
-          this.dataMapper.getAllItems(info, function(items){
-            that.identityMap.addAll(items);
-            callback(items);
-          });
-        } else {
-          return items;
-        }
+        this.dataMapper.getAllItems(info, this.identityMap, function(items){
+          callback(items);
+        });
     }
 
     getItem(id, callback) {

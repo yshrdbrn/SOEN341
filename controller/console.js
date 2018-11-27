@@ -51,7 +51,6 @@ class Console {
 
     addItem(info, callback) {
        this.itemCatalog.addItem(info, callback);
-       callback();
     }
 
     removeItem(id,callback) {

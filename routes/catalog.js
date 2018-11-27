@@ -8,12 +8,24 @@ var Console = require('../controller/console');
 router.get('/panel/catalog',
     function(req, res) {
         Console.allItems(null,function(items) {
-            for (var i = 0; i < items.length; i++) {
-                //items[i].id = undefined;
-            }
+            // for (var i = 0; i < items.length; i++) {
+            //     //items[i].id = undefined;
+            // }
             res.locals.items = items;
             res.render('catalog');
         });
+    }
+);
+
+router.post('/panel/catalog/',
+    function(req, res) {
+        Console.allItems(req.body, function(items) {
+            // for (var i = 0; i < items.length; i++) {
+            //     //items[i].id = undefined;
+            // }
+            res.locals.items = items;
+            res.render('catalog');
+        })
     }
 );
 
