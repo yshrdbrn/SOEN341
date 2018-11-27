@@ -1,17 +1,12 @@
 body {
   background-image: url(loginbac.png);
-
   background-color:rgba(240,255,255,0.5);
-  padding: 50px;
+  padding: 150px;
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
-
     position: absolute;
-    left:20%;
-    top:40%;
+    left:50%;
+    top:50%;
 
-    margin-left:-300px;
-    margin-top:-300px;
-    border-radius:10px;
 }
 
 td {
@@ -19,7 +14,7 @@ td {
 	border-bottom: 1px solid #C1DAD7;
 	background: #fff;
 	padding: 6px 6px 6px 12px;
-  color: #4f6b72;
+        color: #4f6b72;
 }
 
 th {
